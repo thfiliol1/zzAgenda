@@ -1,0 +1,24 @@
+<?php
+/**
+ * Classe réprésentant le contrôleur d'un utilisateur 
+ */
+class ControleurUtilisateur{
+    /**
+     * 
+     * @global String $rep Chemin absolu du répertoire contenant le projet
+     * @global Array $actions Tableau d'action(contenant les scripts php) pouvant être éxécuté par l'utilisateur
+     * @param String $action Action de l'utilisateur qui doit être éxécuté
+     */
+    function __construct($action) {
+        global $rep,$actions;
+        switch ($action){
+            case "accueil":
+                        require ($rep.$actions['accueil']);
+                        break;                      
+            default:
+                        require ($rep.$actions['accueil']);
+                        break;
+        }
+    }    
+    
+}
