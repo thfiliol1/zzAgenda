@@ -1,0 +1,178 @@
+
+html {
+	position: sticky;
+	min-height: 100%;
+}
+
+body{
+	background-color: #E0E0E0;
+	margin-bottom: 150px;
+}
+
+/* banner color*/
+.navbar-inverse {
+    background-color: #17202A;
+}
+
+.footer {
+	position: fixed;
+  	bottom: 0;
+  	font-size: 30px;
+  	width: 100%;
+  	text-align: center;
+}
+
+.icon-small
+{
+    height:18px;
+    margin:0;
+	padding:0;
+}
+
+.icon-medium
+{
+    height:22px;
+	margin:0;
+	padding:0;
+}
+
+
+#languages {
+	text-align:right;
+}
+
+
+ul {
+	display: inline-block;
+}
+
+.nav-link {
+	display: inline-block;
+}
+
+.menu li {
+	margin: 0px 100px;
+}
+
+
+.login {
+  width: 400px;
+  margin: 16px auto;
+  font-size: 16px;
+}
+
+/* Reset top and bottom margins from certain elements */
+.login-header,
+.login p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* The triangle form is achieved by a CSS hack */
+.login-triangle {
+  width: 0;
+  margin-right: auto;
+  margin-left: auto;
+  border: 12px solid transparent;
+  border-bottom-color: rgba(86,101,115,0.8);
+}
+
+.login-header {
+  background-color: rgba(86,101,115,0.8);
+  padding: 20px;
+  font-size: 1.4em;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.login-container {
+  background: #ebebeb;
+  padding: 12px;
+}
+
+/* Every row inside .login-container is defined with p tags */
+.login p {
+  padding: 12px;
+}
+
+.login input {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border-width: 1px;
+  border-style: solid;
+  padding: 16px;
+  outline: 0;
+  font-family: inherit;
+  font-size: 0.95em;
+}
+
+.login input[type="email"],
+.login input[type="password"] {
+  background: #fff;
+  border-color: #bbb;
+  color: #555;
+}
+
+/* Text fields' focus effect */
+.login input[type="email"]:focus,
+.login input[type="password"]:focus {
+  border-color: #888;
+}
+
+.login input[type="submit"] {
+  background-color: rgba(86,101,115,0.8);
+  border-color: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+.login input[type="submit"]:hover {
+  background: #D0D3D4;
+  color: rgba(86,101,115,0.8);
+}
+
+/* Buttons' focus effect */
+.login input[type="submit"]:focus {
+  border-color: #05a;
+}
+
+.scheduleContent {
+  	margin: 50px auto;
+  	font-size: 20px;
+}
+
+.hours {
+	margin-left: 10px;
+	font-size: 25px;
+	text-shadow :1px 1px 1px black;
+}
+
+.row{
+	background-color: rgba(151,154,154,0.3);
+	margin-top: 30px;
+	padding: 10px;
+	vertical-align: center;
+	border-radius: 10px;
+
+}
+
+.row p{
+	text-align: justify;
+}
+
+h2 {
+	text-shadow :1px 1px 1px black;
+}
+
+.container h1 {
+	width:100%;
+	margin: 20px;
+}
+
+td {
+	text-align: justify;
+}
+

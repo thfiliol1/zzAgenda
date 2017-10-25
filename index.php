@@ -12,4 +12,3 @@ Chargeur::charger();
 //instanciation du contrôleur principal
 new ControleurPrincipal();
 
-

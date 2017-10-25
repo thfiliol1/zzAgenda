@@ -15,6 +15,7 @@ switch ($p_choix) {
         $filtre = "date_aspiration";
         break;
 }
+
 $modUtilisateur = new ModeleUtilisateur();
 $tabArticles = $modUtilisateur->donnerDerniersArticles($filtre);
 if($p_choix != null){
