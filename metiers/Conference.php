@@ -1,6 +1,6 @@
 <?php
 /**
- * Classe représentant un hôte
+ * Classe représentant une conférence
  */
 class Conference {
     private $nom;

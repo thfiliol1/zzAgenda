@@ -9,6 +9,7 @@ require_once(__DIR__.'/configuration/configuration.php');
 require_once(__DIR__.'/configuration/Chargeur.php');
 Chargeur::charger();
 
+//var_dump($_SESSION);
 //instanciation du contrôleur principal
 new ControleurPrincipal();
 

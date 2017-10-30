@@ -176,3 +176,8 @@ td {
 	text-align: justify;
 }
 
+div.message{
+    margin-top: 2%;
+    margin-left: 10%;
+    margin-right: 10%;
+}

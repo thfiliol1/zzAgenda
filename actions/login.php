@@ -25,4 +25,10 @@ else{
     require ($rep.$vues['accueil']);
 }
 */
-require ($rep.$vues['login']);
+$modUtilisateur = new ModeleUtilisateur();
+if (!$modUtilisateur->isAuthentificate()){
+    require ($rep.$vues['log_in']);
+}
+else{
+    
+}

@@ -1,19 +1,31 @@
 <?php
 /**
- * Classe représentant le contrôleur principal
+ * Classe reprÃ©sentant le contrÃ´leur principal
  */
 class ControleurPrincipal{
     /**
-     * Constructeur de la classe permettant d'appeler le bon contrôleur correspondant à l'action 
-     * @global String $rep Chemin absolu du répertoire contenant le projet
-     * @global Array $vues Tableau contenant tous les scripts liés aux vues 
+     * Constructeur de la classe permettant d'appeler le bon contrÃ´leur correspondant Ã  l'action 
+     * @global String $rep Chemin absolu du rÃ©pertoire contenant le projet
+     * @global Array $vues Tableau contenant tous les scripts liÃ©s aux vues 
      */
     function __construct() {  
        global $rep,$vues;
+       /*
+       $user1 = new Utilisateur("Thomas", "Filiol", "thomasfiliol@yahoo.fr", md5("projetWeb"), "admin",0);
+       $user2 = new Utilisateur("Stephane", "Valente", "stephanevalente@gmail.com", md5("projetWeb"), "admin",0);
+       $user3 = new Utilisateur("Charles", "Dupont", "charlesdupont@gmail.com", md5("charles"), "user",0);
+       
+       $tabUser[$user1->getEmail()]=$user1->expose();
+       $tabUser[$user2->getEmail()]=$user2->expose();
+       $tabUser[$user3->getEmail()]=$user3->expose();
+       file_put_contents("persistance/BDD/utilisateur.json", json_encode($tabUser));*/
+      /*
+       $tab = json_decode(file_get_contents("persistance/BDD/utilisateur.json"),TRUE);
+       var_dump($tab);*/
         try{
             //on initialise un tableau d'erreur
             $tabMessages = array ();
-            //on récupère l'action
+            //on rÃ©cupÃ¨re l'action
             if(!isset($_REQUEST['v'])){
                    $action=NULL;
             }
@@ -21,12 +33,12 @@ class ControleurPrincipal{
                 $action = $_REQUEST['v'];
             }           
 
-
+            $modUser=new ModeleUtilisateur();
             
             $tabActionAdministrateur=array('connexion','deconnexion');
             $tabActionUtilisateur=array('log_in');
-            //on teste si le visiteur est authentifié
-            if(isset($_SESSION['role'])){
+            //on teste si le visiteur est authentifiÃ©
+          /*  if($modUser->isAuthentificate()){*/
                 if (in_array($action,$tabActionAdministrateur)){
                     $modAdmin=new ModeleAdministrateur();
                     if(!$modAdmin->isAdmin()){
@@ -36,7 +48,7 @@ class ControleurPrincipal{
                                 new ControleurAdministrateur($action);
                                 break;
                             default :
-                                require $rep.$vues['log_in'];
+                                new ControleurUtilisateur("log_in");
                                 break;
 
                         }                                        
@@ -46,19 +58,20 @@ class ControleurPrincipal{
                     }  
                 }
                 else{
-                   new ControleurUtilisateur($action);
+                    if($modUser->isAuthentificate()){
+                        new ControleurUtilisateur($action);
+                    }
+                    else{
+                        new ControleurUtilisateur("log_in");
+                    }
                 }
-            }
-            else{
-              //require $rep.$vues['log_in'];
-               require ($rep.$vues['administrate']);
-               //require $rep.$vues['conference']; 
-            }
+            /*}
+*/
 
             
         }   catch (PDOException $e){
                     global $rep,$vues;
-                    $tabMessages[] = "Impossible de se connecter à la base de données";
+                    $tabMessages[] = "Impossible de se connecter Ã  la base de donnÃ©es";
                     require ($rep.$vues['erreur']);
                 }
                 catch (Exception $e2){

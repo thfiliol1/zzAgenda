@@ -12,6 +12,16 @@ class ModeleUtilisateur {
 	$this->dal = new DAL();
     }
     
+    public function isAuthentificate(){
+        if(isset($_SESSION['role'])){
+            return TRUE;
+        }
+        else{
+            return FALSE;
+        }
+    }
+    
+    
     /** CECI EST UN EXEMPLE
      * Méthode permettant de récupérer les derniers Article Web 
      * @return tableau ArticleWeb 
