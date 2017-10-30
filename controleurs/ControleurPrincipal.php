@@ -10,6 +10,7 @@ class ControleurPrincipal{
      */
     function __construct() {  
        global $rep,$vues;
+       
        /*
        $user1 = new Utilisateur("Thomas", "Filiol", "thomasfiliol@yahoo.fr", md5("projetWeb"), "admin",0);
        $user2 = new Utilisateur("Stephane", "Valente", "stephanevalente@gmail.com", md5("projetWeb"), "admin",0);
@@ -48,9 +49,7 @@ class ControleurPrincipal{
                                 new ControleurAdministrateur($action);
                                 break;
                             default :
-                                new ControleurUtilisateur("log_in");
-                                break;
-
+                                new ControleurUtilisateur("log_in");                              
                         }                                        
                     }
                     else{

@@ -18,7 +18,6 @@ class ControleurUtilisateur{
                     
             default:
                         require ($rep.$actions['login']);
-                        break;
         }
     }    
     

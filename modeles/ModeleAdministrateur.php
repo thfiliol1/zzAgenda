@@ -9,10 +9,11 @@ class ModeleAdministrateur {
     }
     //EXEMPLE DE CONNEXION 
     public function connexion($email,$mdp){
+        global $language;
         $dal=new DAL();
         $userInfo = $dal->getUtilisateur($email);
         if ($userInfo == FALSE){
-            throw new Exception("Email non reconnu. ");
+            throw new Exception($language['email_not_recognized']);
         }
         else{
             $user = new Utilisateur($userInfo["prenom"], 
@@ -34,11 +35,11 @@ class ModeleAdministrateur {
                     }
                 }
                 else{
-                    throw new Exception("Vous ête déjà connecté sur un autre support.");
+                    throw new Exception($language['already_connected']);
                 }
             }
             else{
-                throw new Exception("Mot de passe incorrect.");
+                throw new Exception($language['password_not_valid']);
             }
         }
         return $user;

@@ -2,7 +2,7 @@
 /** CECI EST UN EXEMPLE
  * Script exécuté lors de l'appel de la page accueil
  */
-global $rep, $vues;
+global $rep, $vues, $language;
 /*$p_choix = Parametre::getParam("choix");
 switch ($p_choix) {
     case 1:

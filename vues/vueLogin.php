@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>Log in</title>
+    <title><?=$language["authentication"]?></title>
     <meta charset ="UTF-8">
     
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -11,7 +11,6 @@
     <script src="js/tether.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/auth.js"></script>
-    
   </head>
   <body>
 
@@ -23,12 +22,12 @@
     <div class="login">
         <div class="login-triangle"></div>
 
-        <h2 class="login-header">Log in</h2>
+        <h2 class="login-header"><?=$language["authentication"]?></h2>
 
         <div class="login-container">
             <p><input id="field_email" type="email" placeholder="Email"></p>
-            <p><input id="field_password" type="password" placeholder="Password"></p>
-            <p class="text-center"><button class="btn btn-primary" id="buttonAuth">Let me in</button>
+            <p><input id="field_password" type="password" placeholder="<?=$language["password"]?>"></p>
+            <p class="text-center"><button class="btn btn-primary" id="buttonAuth"><?=$language["login"]?></button>
             </p>
             <div id="result"></div>
         </div>
