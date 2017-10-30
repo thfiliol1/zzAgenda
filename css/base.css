@@ -1,0 +1,18 @@
+.bd-pageheader {
+    padding: 2rem 15px;
+    margin-bottom: 1.5rem;
+    color: #8FA5C4;
+    text-align: center;
+    background-color: #144287;
+}
+
+
+.bd-masthead {
+    position: relative;
+    padding: 3rem 15px 2rem;
+    color: #8FA5C4;
+    text-align: center;
+    background-image: -webkit-linear-gradient(315deg,#081A35,#144287,#1A57B2);
+    background-image: -o-linear-gradient(315deg,#081A35,#144287,#1A57B2);
+    background-image: linear-gradient(135deg,#081A35,#144287,#1A57B2);
+}

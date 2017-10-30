@@ -1,4 +1,4 @@
- <script src="/js/langSelector.js"></script>
+ <script src="js/langSelector.js"></script>
 
 
 <!--top Banner-->
@@ -30,7 +30,7 @@
     </ul>
 
     <a class="navbar-brand" href="#">
-      <img class="iconTop" src="/images/logo.png" width="350" height="125" alt="">
+      <img class="iconTop" src="images/logo.png" width="350" height="125" alt="">
     </a>
 
   </div>

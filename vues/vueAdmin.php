@@ -4,16 +4,20 @@
     <title>Admin</title>
     <meta charset ="UTF-8">
 
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/myStyle.css">
-    <link rel="stylesheet" href="/css/glyphicons.css">
-    <link rel="stylesheet" href="/css/bootstrap-datetimepicker.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/myStyle.css">
+    <link rel="stylesheet" href="css/glyphicons.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/tempusdominus-bootstrap-4.css">
 
-
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/moment.js"></script>
-    <script src="/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/tether.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/moment-with-locales.js"></script>
+    <script src="js/base.js"></script>
+    <script src="js/tempusdominus-bootstrap-4.js"></script>
+    <script src="js/timepicker.js"></script>
 
   </head>
   <body>
@@ -83,12 +87,12 @@
             <div class="modal-body">
 
               <div class="form-group">
-                  <div class='input-group date datetimepicker'>
-                      <input type='text' class="form-control" />
-                      <span class="input-group-addon">
-                          <span class="glyphicon glyphicon-calendar"></span>
-                      </span>
-                  </div>
+                <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
+                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker2"/>
+                    <span class="input-group-addon" data-target="#datetimepicker2" data-toggle="datetimepicker">
+                        <span class="fa fa-calendar"></span>
+                    </span>
+                </div>
               </div>       
 
               <div class="form-group">
@@ -129,12 +133,12 @@
             <div class="modal-body">
 
               <div class="form-group">
-                  <div class='input-group date datetimepicker'>
-                      <input type='text' class="form-control" />
-                      <span class="input-group-addon">
-                          <span class="glyphicon glyphicon-calendar"></span>
-                      </span>
-                  </div>
+                <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1"/>
+                    <span class="input-group-addon" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                        <span class="fa fa-calendar"></span>
+                    </span>
+                </div>
               </div>       
 
               <div class="form-group">

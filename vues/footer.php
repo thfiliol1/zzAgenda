@@ -7,15 +7,15 @@
     <div class="navbar-collapse collapse" id="navbarsExampleDefault">
       <ul class="nav navbar-nav menu mr-auto">
         <li class="nav-item">
-          <img src="/images/schedule.png" width="50" height="50">
+          <img src="images/schedule.png" width="50" height="50">
           <a class="nav-link" href="index.html">Schedule </a>
         </li>
         <li class="nav-item">
-          <img src="/images/map.png" width="50" height="50">
+          <img src="images/map.png" width="50" height="50">
           <a class="nav-link" href="map.html">Maps</a>
         </li>
         <li class="nav-item active">
-          <img src="/images/auth.png" width="50" height="50">
+          <img src="images/auth.png" width="50" height="50">
           <a class="nav-link" href="log.html">Logout</a>
         </li>
         

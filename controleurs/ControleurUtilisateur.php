@@ -12,11 +12,12 @@ class ControleurUtilisateur{
     function __construct($action) {
         global $rep,$actions;
         switch ($action){
-            case "accueil":
-                        require ($rep.$actions['accueil']);
-                        break;                      
+            case "login":
+                        require ($rep.$actions['login']);
+                        break;
+                    
             default:
-                        require ($rep.$actions['accueil']);
+                        require ($rep.$actions['login']);
                         break;
         }
     }    

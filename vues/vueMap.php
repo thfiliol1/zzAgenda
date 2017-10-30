@@ -4,11 +4,12 @@
     <title>Map</title>
     <meta charset ="UTF-8">
 
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/myStyle.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/myStyle.css">
 
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/tether.min.js"></script>    
+    <script src="js/bootstrap.min.js"></script>
 
   </head>
   <body>

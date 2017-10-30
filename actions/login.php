@@ -3,7 +3,7 @@
  * Script exécuté lors de l'appel de la page accueil
  */
 global $rep, $vues;
-$p_choix = Parametre::getParam("choix");
+/*$p_choix = Parametre::getParam("choix");
 switch ($p_choix) {
     case 1:
         $filtre = "date_aspiration";
@@ -24,3 +24,5 @@ if($p_choix != null){
 else{
     require ($rep.$vues['accueil']);
 }
+*/
+require ($rep.$vues['login']);

@@ -5,6 +5,8 @@ $rep=__DIR__.'/../';
 //BD
 
 //Actions
-$actions['accueil']='actions/accueil.php';
+$actions['login']='actions/login.php';
 //Vues
-$vues['accueil']='vues/vueAccueil.php';
+$vues['log_in']='vues/vueLogin.php';
+$vues['administrate']='vues/vueAdmin.php';
+$vues['conference']='vues/vueConference.php';

@@ -9,44 +9,52 @@ class ControleurPrincipal{
      * @global Array $vues Tableau contenant tous les scripts liés aux vues 
      */
     function __construct() {  
-        
+       global $rep,$vues;
         try{
             //on initialise un tableau d'erreur
             $tabMessages = array ();
             //on récupère l'action
-            if(!isset($_REQUEST['action'])){
+            if(!isset($_REQUEST['v'])){
                    $action=NULL;
             }
             else{
-                $action = $_REQUEST['action'];
-            }
+                $action = $_REQUEST['v'];
+            }           
 
 
             
             $tabActionAdministrateur=array('connexion','deconnexion');
-            $tabActionUtilisateur=array('accueil');
-            
-	    if (in_array($action,$tabActionAdministrateur)){
-                $modAdmin=new ModeleAdministrateur();
-                if(!$modAdmin->isAdmin()){
-                    global $rep,$vues;
-                    switch ($action){
-                        case "connexion":
-                            new ControleurAdministrateur($action);
-                            break;
-                        default :
-                            require $rep.$vues['seConnecter'];
-                            break;
-                            
-                    }                                        
+            $tabActionUtilisateur=array('log_in');
+            //on teste si le visiteur est authentifié
+            if(isset($_SESSION['role'])){
+                if (in_array($action,$tabActionAdministrateur)){
+                    $modAdmin=new ModeleAdministrateur();
+                    if(!$modAdmin->isAdmin()){
+                        global $rep,$vues;
+                        switch ($action){
+                            case "connexion":
+                                new ControleurAdministrateur($action);
+                                break;
+                            default :
+                                require $rep.$vues['log_in'];
+                                break;
+
+                        }                                        
+                    }
+                    else{
+                        new ControleurAdministrateur($action);
+                    }  
                 }
                 else{
-                    new ControleurAdministrateur($action);
-                }  
+                   new ControleurUtilisateur($action);
+                }
             }
             else{
-               new ControleurUtilisateur($action);
+              //require $rep.$vues['log_in'];
+               require ($rep.$vues['administrate']);
+               //require $rep.$vues['conference']; 
             }
+
             
         }   catch (PDOException $e){
                     global $rep,$vues;
