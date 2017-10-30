@@ -88,10 +88,11 @@
 
               <div class="form-group">
                 <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
-                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker2"/>
                     <span class="input-group-addon" data-target="#datetimepicker2" data-toggle="datetimepicker">
                         <span class="fa fa-calendar"></span>
                     </span>
+                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker2"/>
+                    
                 </div>
               </div>       
 
@@ -134,10 +135,11 @@
 
               <div class="form-group">
                 <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
-                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1"/>
                     <span class="input-group-addon" data-target="#datetimepicker1" data-toggle="datetimepicker">
                         <span class="fa fa-calendar"></span>
                     </span>
+                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1"/>
+                    
                 </div>
               </div>       
 
