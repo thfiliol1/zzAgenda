@@ -3,8 +3,6 @@ jQuery(document).ready(function() {
     jQuery("#buttonAuth").click(function() {
 		var email = jQuery("#field_email").val();
 		var pwd = jQuery("#field_password").val();
-		console.log(pwd);
-		console.log(email);
 		
 		jQuery.ajax({
 			url: 'index.php?v=connexion',
@@ -21,12 +19,21 @@ jQuery(document).ready(function() {
                                 jQuery("#result").remove();
                                 if(res.error == 0){
                                     jQuery("#message").html("<div class='alert alert-success' role='alert'>"+res.msg+"</div>");
+                                    window.location.replace("index.php?v=conferences")
                                 }
                                 else{
                                     jQuery("#message").html("<div class='alert alert-danger' role='alert'>"+res.msg+"</div>");
-                                }
-                                console.log(res);
-				
+                                }				
+			}
+		});
+	})
+        
+        jQuery("#link_logout").click(function() {		
+		jQuery.ajax({
+			url: 'index.php?v=deconnexion',
+			type: 'POST',              
+			success : function(data, statut){                                
+                            location.reload();
 			}
 		});
 	})

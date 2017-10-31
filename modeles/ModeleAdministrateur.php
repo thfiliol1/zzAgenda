@@ -10,8 +10,7 @@ class ModeleAdministrateur {
     //EXEMPLE DE CONNEXION 
     public function connexion($email,$mdp){
         global $language;
-        $dal=new DAL();
-        $userInfo = $dal->getUtilisateur($email);
+        $userInfo = $this->dal->donner_utilisateur($email);
         if ($userInfo == FALSE){
             throw new Exception($language['email_not_recognized']);
         }
@@ -24,7 +23,7 @@ class ModeleAdministrateur {
             
             if(md5($mdp) == $userInfo["password"]){
                 if($userInfo["en_ligne"] == 0){
-                    $dal->sauvegarder_etat_utilisateur($user);
+                    $this->dal->sauvegarder_etat_utilisateur($user);
                     if($userInfo["role"] == "admin"){
                         $_SESSION['role']='admin';
                         $_SESSION['login']=$email;
@@ -49,17 +48,31 @@ class ModeleAdministrateur {
 
     
     public function isAdmin(){
-        if(isset($_SESSION['role']) && isset($_SESSION['login'])){
-            return TRUE;
+        if(isset($_SESSION['role'])){
+            if($_SESSION['role']=="admin"){
+                return TRUE;
+            }
+            else{
+                return FALSE;
+            }
         }
-        else{
+        else {
             return FALSE;
         }
     }
 
 
     public function deconnexion(){
-        session_unset();
+        $userInfo=$this->dal->donner_utilisateur($_SESSION["login"]);
+        
+        $user = new Utilisateur($userInfo["prenom"], 
+                                    $userInfo["nom"], 
+                                    $userInfo["email"], 
+                                    $userInfo["password"],
+                                    $userInfo["role"],0);
+ 
+        $this->dal->sauvegarder_etat_utilisateur($user);
+        session_unset();     
     }  
     
 }

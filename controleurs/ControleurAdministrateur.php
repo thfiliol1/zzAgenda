@@ -9,7 +9,7 @@ class ControleurAdministrateur {
                     require ($rep.$actions['connexion']);
                     break;
             case "deconnexion":
-                    $this->deconnexion();
+                    require ($rep.$actions['deconnexion']);
                     break;
         }
     }

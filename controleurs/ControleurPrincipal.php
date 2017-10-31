@@ -23,7 +23,24 @@ class ControleurPrincipal{
       /*
        $tab = json_decode(file_get_contents("persistance/BDD/utilisateur.json"),TRUE);
        var_dump($tab);*/
-        try{
+       
+       /*$conference0 = new Conference("1509456619", "Le chabrolisme", "Discussion autour de cette nouvelle religion", "Clermont-Ferrand place de jaude", "stephanevalente@gmail.com");
+       $conference1 = new Conference("1512134224", "Organisation projet", "nous allons parler du déroulement du projet.", "Clermont-Ferrand 23 Rue des Meunier", "thomasfiliol@yahoo.fr");
+       $conference2 = new Conference("1513430224", "Construction du nouveau bâtiment", "nous allons aborder les différents matériaux.", "Saint-Etienne", "charlesdupont@gmail.com");
+       $conference3 = new Conference("1544966224", "Cours Web", "Nous regarderons les nouvelles technologies", "Aurillac", "thomasfiliol@yahoo.fr");
+       $conference4 = new Conference("1521206224", "Ouverture de la pêche", "Présentation de la nouvelle réglementation", "Aurillac", "thomasfiliol@yahoo.fr");
+        
+       $tabConf[$conference0->getDate().$conference0->getSpeaker()] = $conference0->expose();
+       $tabConf[$conference1->getDate().$conference1->getSpeaker()] = $conference1->expose();
+       $tabConf[$conference2->getDate().$conference2->getSpeaker()] = $conference2->expose();
+       $tabConf[$conference3->getDate().$conference3->getSpeaker()] = $conference3->expose();
+       $tabConf[$conference4->getDate().$conference4->getSpeaker()] = $conference4->expose();
+       file_put_contents("persistance/BDD/conference.json", json_encode($tabConf));*/
+       
+      /* $tab = json_decode(file_get_contents("persistance/BDD/conference.json"),TRUE);
+       var_dump($tab);*/
+       
+       try{
             //on initialise un tableau d'erreur
             $tabMessages = array ();
             //on rÃ©cupÃ¨re l'action
@@ -37,7 +54,7 @@ class ControleurPrincipal{
             $modUser=new ModeleUtilisateur();
             
             $tabActionAdministrateur=array('connexion','deconnexion');
-            $tabActionUtilisateur=array('log_in');
+            $tabActionUtilisateur=array('log_in','conferences');
             //on teste si le visiteur est authentifiÃ©
           /*  if($modUser->isAuthentificate()){*/
                 if (in_array($action,$tabActionAdministrateur)){
@@ -46,6 +63,9 @@ class ControleurPrincipal{
                         global $rep,$vues;
                         switch ($action){
                             case "connexion":
+                                new ControleurAdministrateur($action);
+                                break;
+                            case "deconnexion":
                                 new ControleurAdministrateur($action);
                                 break;
                             default :

@@ -8,7 +8,7 @@ class DAL {
      */
     public function __construct(){}
     
-    public function getUtilisateur($email){
+    public function donner_utilisateur($email){
         $tab = json_decode(file_get_contents("persistance/BDD/utilisateur.json"),TRUE);
         if(array_key_exists($email,$tab)){
             return $tab[$email];
@@ -18,6 +18,17 @@ class DAL {
         }        
     }
     
+    public function donner_conferences_futur(){
+        $tab = json_decode(file_get_contents("persistance/BDD/conference.json"),TRUE);
+        foreach ($tab as $email => $conferenceInfo) {
+            if($conferenceInfo["date"]>  time()){
+                $res[$email]=$conferenceInfo;
+            }
+        }
+        return $res;
+    }
+
+
     public function sauvegarder_etat_utilisateur($user){
         $tabUser = json_decode(file_get_contents("persistance/BDD/utilisateur.json"),TRUE);
         $tabUser[$user->getEmail()] = $user->expose();
