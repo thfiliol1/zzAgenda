@@ -3,7 +3,7 @@
   <head>
     <title>Map</title>
     <meta charset ="UTF-8">
-
+    <link rel="icon" href="images/zzAgenda.png">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/myStyle.css">
 

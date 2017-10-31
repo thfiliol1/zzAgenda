@@ -3,14 +3,14 @@
   <head>
     <title>Admin</title>
     <meta charset ="UTF-8">
-
+    <link rel="icon" href="images/zzAgenda.png">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/myStyle.css">
     <link rel="stylesheet" href="css/glyphicons.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/tempusdominus-bootstrap-4.css">
-
+    
     <script src="js/jquery.min.js"></script>
     <script src="js/tether.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

@@ -29,3 +29,4 @@ $language['welcome']='Bienvenue ';
 $language['email_not_recognized']='Email non reconnu. ';
 $language['already_connected']='Vous ête déjà connecté sur un autre appareil.';
 $language['password_not_valid']='Mot de passe incorrect.';
+$language['location_of_conference']='Localisation de la conférence';
