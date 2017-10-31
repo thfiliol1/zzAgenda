@@ -17,6 +17,15 @@ class Validation{
         }         
     }
     
+    public static function isEmail($email){
+        if(filter_var($email, FILTER_VALIDATE_EMAIL)){
+            return TRUE;
+        }
+        else{
+            return FALSE;
+        }         
+    }
+    
     public static function isReliability($p_reliability){
         switch ($p_reliability) {
             case "official":

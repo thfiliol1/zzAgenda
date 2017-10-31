@@ -6,6 +6,7 @@ $rep=__DIR__.'/../';
 
 //Actions
 $actions['login']='actions/login.php';
+$actions['connexion']='actions/connexion.php';
 //Vues
 $vues['log_in']='vues/vueLogin.php';
 $vues['administrate']='vues/vueAdmin.php';

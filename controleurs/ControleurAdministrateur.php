@@ -3,11 +3,10 @@
 class ControleurAdministrateur {
     
     function __construct($action) {
-
+        global $rep,$actions;
         switch($action) {
-
             case "connexion":
-                    $this->connexion();
+                    require ($rep.$actions['connexion']);
                     break;
             case "deconnexion":
                     $this->deconnexion();
@@ -16,7 +15,7 @@ class ControleurAdministrateur {
     }
     //EXEMPLE CONNEXION Mettre le corps de la fonction dans une ACTION cf controleur utilisateur
     //Méthode permettant à l'utilisateur de s'identifier (pour devenir Admin)    
-    function connexion(){
+   /* function connexion(){
         global $rep,$vues;
         if (!isset($_REQUEST['login']) && !isset($_REQUEST['password'])){
             $tabMessage[]="Action impossible !";
@@ -41,7 +40,7 @@ class ControleurAdministrateur {
                 require ($rep.$vues['seConnecter']);
             }
         }
-    }
+    }*/
     
     //Méthode permettant à l'utilisateur de se déconnecter   
     function deconnexion(){
