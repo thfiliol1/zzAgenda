@@ -16,7 +16,7 @@ $active="";
         ?>            
         <li class="nav-item <?= $active ?>">
           <img src="images/schedule.png" width="50" height="50">
-          <a class="nav-link" href="index.html"><?=$language["schedules"]?> </a>
+          <a id="link_schedule" class="nav-link" href="#"><?=$language["schedules"]?> </a>
         </li>
         <?php
         $active="";
@@ -26,7 +26,7 @@ $active="";
         ?>        
         <li class="nav-item <?= $active ?>">
           <img src="images/map.png" width="50" height="50">
-          <a class="nav-link" href="map.html"><?=$language["map"]?></a>
+          <a id="link_map" class="nav-link" href="#"><?=$language["map"]?></a>
         </li>
         <?php
         $active="";
@@ -37,7 +37,7 @@ $active="";
         ?>
         <li class="nav-item <?= $active ?>">
           <img src="images/administration.png" width="50" height="50">
-          <a class="nav-link" href="map.html"><?=$language["administration"]?></a>
+          <a id="link_admin" class="nav-link" href="#"><?=$language["administration"]?></a>
         </li>      
         <?php
         }
