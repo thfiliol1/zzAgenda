@@ -74,5 +74,30 @@ class ModeleAdministrateur {
         $this->dal->sauvegarder_etat_utilisateur($user);
         session_unset();     
     }  
+
+
+    public function editConf($conf) {
+        $tabConfs = $this->dal->donner_conferences();
+        $tabConfs[$conf->getId()]=$conf->expose();
+        $this->dal->sauvegarder_conferences($tabConfs);
+    }
+
+    public function addConf($date,$title,$city,$speaker,$description) {
+        $tabConfs = $this->dal->donner_conferences();
+        $keys = array_keys($tabConfs);
+        $last_key = $keys[count($keys)-1];
+        $newId=$last_key+1;
+        $conf=new Conference($newId,$date,$title,$description,$city,$speaker);
+        $tabConfs[$conf->getId()]=$conf->expose();
+        $this->dal->sauvegarder_conferences($tabConfs);
+    }
+
+    public function delConf($id) {
+        $tabConfs = $this->dal->donner_conferences();
+        unset($tabConfs[$id]);
+        $this->dal->sauvegarder_conferences($tabConfs);
+    }
+
+
     
 }

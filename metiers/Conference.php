@@ -3,6 +3,7 @@
  * Classe représentant une conférence
  */
 class Conference {
+    private $id;
     private $date;
     private $titre;
     private $description;
@@ -10,7 +11,8 @@ class Conference {
     private $speaker;
 
 
-    public function __construct($date, $titre, $description, $adresse, $speaker) {
+    public function __construct($id,$date, $titre, $description, $adresse, $speaker) {
+        $this->id = $id;
         $this->date = $date;
         $this->titre = $titre;
         $this->description = $description;
@@ -18,6 +20,10 @@ class Conference {
         $this->speaker = $speaker;
     }
     
+    public function getId(){
+        return $this->id;
+    }
+
     public function getDate(){
         return $this->date;
     }

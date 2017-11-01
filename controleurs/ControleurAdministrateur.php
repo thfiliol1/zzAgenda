@@ -11,6 +11,18 @@ class ControleurAdministrateur {
             case "deconnexion":
                     require ($rep.$actions['deconnexion']);
                     break;
+            case "admin":
+                    require ($rep.$actions['admin']);
+                    break;
+            case "editConf":
+                    require ($rep.$actions['editConf']);
+                    break;
+            case "addConf":
+                    require ($rep.$actions['addConf']);
+                    break;
+            case "delConf":
+                    require ($rep.$actions['delConf']);
+                    break;
         }
     }
     //EXEMPLE CONNEXION Mettre le corps de la fonction dans une ACTION cf controleur utilisateur

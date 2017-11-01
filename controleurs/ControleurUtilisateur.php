@@ -17,8 +17,7 @@ class ControleurUtilisateur{
                         break;
             case "conferences":
                         require ($rep.$actions['conferences']);
-                        break;               
-                    
+                        break;    
             default:
                         require ($rep.$actions['login']);
         }

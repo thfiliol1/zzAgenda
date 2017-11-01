@@ -19,7 +19,8 @@ jQuery(document).ready(function() {
                                 jQuery("#result").remove();
                                 if(res.error == 0){
                                     jQuery("#message").html("<div class='alert alert-success' role='alert'>"+res.msg+"</div>");
-                                    window.location.replace("index.php?v=conferences")
+
+                                    window.location.replace('index.php?v=conferences');
                                 }
                                 else{
                                     jQuery("#message").html("<div class='alert alert-danger' role='alert'>"+res.msg+"</div>");

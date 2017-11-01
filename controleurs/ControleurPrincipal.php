@@ -24,17 +24,17 @@ class ControleurPrincipal{
        $tab = json_decode(file_get_contents("persistance/BDD/utilisateur.json"),TRUE);
        var_dump($tab);*/
        
-       /*$conference0 = new Conference("1509456619", "Le chabrolisme", "Discussion autour de cette nouvelle religion", "Clermont-Ferrand place de jaude", "stephanevalente@gmail.com");
-       $conference1 = new Conference("1512134224", "Organisation projet", "nous allons parler du déroulement du projet.", "Clermont-Ferrand 23 Rue des Meunier", "thomasfiliol@yahoo.fr");
-       $conference2 = new Conference("1513430224", "Construction du nouveau bâtiment", "nous allons aborder les différents matériaux.", "Saint-Etienne", "charlesdupont@gmail.com");
-       $conference3 = new Conference("1544966224", "Cours Web", "Nous regarderons les nouvelles technologies", "Aurillac", "thomasfiliol@yahoo.fr");
-       $conference4 = new Conference("1521206224", "Ouverture de la pêche", "Présentation de la nouvelle réglementation", "Aurillac", "thomasfiliol@yahoo.fr");
+       /*$conference0 = new Conference("0","1509456619", "Le chabrolisme", "Discussion autour de cette nouvelle religion", "Clermont-Ferrand place de jaude", "Stéphane Valente");
+       $conference1 = new Conference("1","1512134224", "Organisation projet", "nous allons parler du déroulement du projet.", "Clermont-Ferrand 23 Rue des Meunier", "Thomas Filiol");
+       $conference2 = new Conference("2","1513430224", "Construction du nouveau bâtiment", "nous allons aborder les différents matériaux.", "Saint-Etienne", "Charles Dupont");
+       $conference3 = new Conference("3","1544966224", "Cours Web", "Nous regarderons les nouvelles technologies", "Aurillac", "Thomas Filiol");
+       $conference4 = new Conference("6","1521206224", "Ouverture de la pêche", "Présentation de la nouvelle réglementation", "Aurillac", "Thomas Filiol");
         
-       $tabConf[$conference0->getDate().$conference0->getSpeaker()] = $conference0->expose();
-       $tabConf[$conference1->getDate().$conference1->getSpeaker()] = $conference1->expose();
-       $tabConf[$conference2->getDate().$conference2->getSpeaker()] = $conference2->expose();
-       $tabConf[$conference3->getDate().$conference3->getSpeaker()] = $conference3->expose();
-       $tabConf[$conference4->getDate().$conference4->getSpeaker()] = $conference4->expose();
+       $tabConf[$conference0->getId()] = $conference0->expose();
+       $tabConf[$conference1->getId()] = $conference1->expose();
+       $tabConf[$conference2->getId()] = $conference2->expose();
+       $tabConf[$conference3->getId()] = $conference3->expose();
+       $tabConf[$conference4->getId()] = $conference4->expose();
        file_put_contents("persistance/BDD/conference.json", json_encode($tabConf));*/
        
       /* $tab = json_decode(file_get_contents("persistance/BDD/conference.json"),TRUE);
@@ -53,7 +53,7 @@ class ControleurPrincipal{
 
             $modUser=new ModeleUtilisateur();
             
-            $tabActionAdministrateur=array('connexion','deconnexion');
+            $tabActionAdministrateur=array('connexion','deconnexion','admin','editConf','addConf','delConf');
             $tabActionUtilisateur=array('log_in','conferences');
             //on teste si le visiteur est authentifiÃ©
           /*  if($modUser->isAuthentificate()){*/

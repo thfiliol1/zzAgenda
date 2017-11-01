@@ -20,12 +20,22 @@ class DAL {
     
     public function donner_conferences_futur(){
         $tab = json_decode(file_get_contents("persistance/BDD/conference.json"),TRUE);
-        foreach ($tab as $email => $conferenceInfo) {
+
+        foreach ($tab as $key => $conferenceInfo) {
             if($conferenceInfo["date"]>  time()){
-                $res[$email]=$conferenceInfo;
+                $res[$key]=$conferenceInfo;
             }
         }
         return $res;
+    }
+
+
+    public function donner_conferences(){
+        return json_decode(file_get_contents("persistance/BDD/conference.json"),TRUE);
+    }
+
+    public function sauvegarder_conferences($tabConf) {
+        file_put_contents("persistance/BDD/conference.json", json_encode($tabConf));
     }
 
 

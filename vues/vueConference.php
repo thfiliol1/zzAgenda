@@ -42,14 +42,14 @@
           <img style="float: left" class="iconTop" src="images/landmark.png" width="25" height="25" alt="">
           <p><a data-title="map" data-toggle="modal" data-target="#map" id="lien<?=$i?>" href="#" onclick="afficher_carte(<?=$i?>)"><?= $conferenceInfo["conference"]->getAdresse()?></a></p>
           <img style="float: left" class="iconTop" src="images/micro.png" width="25" height="25" alt="">
-          <p><?= $conferenceInfo["speaker"]->getPrenom()." ".$conferenceInfo["speaker"]->getNom() ?></p>
+          <p><?= $conferenceInfo["conference"]->getSpeaker()?></p>
         </div>
         <div class="col-2" >          
           <img style="float: right" src="images/heart.png" width="25" height="25" alt="">
           <span style="float: right">10</span>
         </div>
       </div>
-        <div id="map<?=$i?>" style="display: none; height: 400px; width: 100%;"></div>
+      
     </div>
     <?php } ?>
       <div class="modal fade" id="map" tabindex="-1" role="dialog" aria-labelledby="map" aria-hidden="true">

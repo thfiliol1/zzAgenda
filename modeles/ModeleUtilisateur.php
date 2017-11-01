@@ -12,27 +12,30 @@ class ModeleUtilisateur {
 	$this->dal = new DAL();
     }
     
-    public function donner_conferences(){
+    public function donner_conferences_futur(){
         $conferencesInfo = $this->dal->donner_conferences_futur();
-        foreach ($conferencesInfo as $email => $conferenceInfo) {
-            $conf = new Conference($conferenceInfo["date"], 
+        return $this->creer_tableau_conferences($conferencesInfo);
+    }
+
+    public function donner_conferences(){
+        $conferencesInfo = $this->dal->donner_conferences();
+        return $this->creer_tableau_conferences($conferencesInfo);
+    }
+
+
+    private function creer_tableau_conferences($conferencesInfo) {
+        
+        foreach ($conferencesInfo as $key => $conferenceInfo) {
+            $conf = new Conference($conferenceInfo["id"],
+                                                $conferenceInfo["date"], 
                                                $conferenceInfo["titre"],
                                                $conferenceInfo["description"], 
                                                $conferenceInfo["adresse"] , 
                                                $conferenceInfo["speaker"]);
-            $userInfo = $this->dal->donner_utilisateur($conferenceInfo["speaker"]);
-            $speaker = new Utilisateur($userInfo["prenom"], 
-                                       $userInfo["nom"], 
-                                       $userInfo["email"], 
-                                       $userInfo["password"], 
-                                       $userInfo["role"], 
-                                       $userInfo["en_ligne"]);
-            
-            $tabConferences[] = array("conference" => $conf,"speaker" => $speaker);
+            $tabConferences[] = array("conference" => $conf);
         }
         return $tabConferences;
     }
-
 
     public function isAuthentificate(){
         if(isset($_SESSION['role'])){
