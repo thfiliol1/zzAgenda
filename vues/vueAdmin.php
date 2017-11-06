@@ -94,6 +94,8 @@
                 
             <div class="modal-body">
 
+              <div id="message_admin_modify"></div>
+
               <div class="form-group">
                 <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
                     <span class="input-group-addon" data-target="#datetimepicker2" data-toggle="datetimepicker">
@@ -139,6 +141,8 @@
 
                 
             <div class="modal-body">
+
+              <div id="message_admin_add"></div>
 
               <div class="form-group">
                 <div class="input-group date" id="datetimepicker1" data-target-input="nearest">

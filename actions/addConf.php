@@ -1,14 +1,21 @@
 <?php
 global $rep,$vues,$language;
 
-$date=$_REQUEST['date'];
-$title=$_REQUEST['title'];
-$city=$_REQUEST['city'];
-$speaker=$_REQUEST['speaker'];
-$description=$_REQUEST['description'];
-
+$date=Parametre::getParam('date');
+$title=Parametre::getParam('title');
+$city=Parametre::getParam('city');
+$speaker=Parametre::getParam('speaker');
+$description=Parametre::getParam('description');
 $date=str_replace('/', '-', $date);
 
 
-$ModAdmin=new ModeleAdministrateur();
-$ModAdmin->addConf(strtotime($date),$title,$city,$speaker,$description);
+
+if($date == NULL || $title == NULL || $city == NULL || $speaker == NULL || $description == NULL) {
+	$tabMessage["msg"]=$language['many_field_empty'];
+} else {
+	$ModAdmin=new ModeleAdministrateur();
+	$ModAdmin->addConf(strtotime($date),$title,$city,$speaker,$description);
+}
+
+
+echo json_encode($tabMessage);

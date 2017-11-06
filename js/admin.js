@@ -23,8 +23,15 @@ jQuery(document).ready(function() {
 				"speaker":speaker,
 				"description":description 
 			},                
-			success : function(data, statut){                                
-                                location.reload();		
+			success : function(data, statut){       
+								var res = JSON.parse(data);
+                                if(res != null){
+                                    jQuery("#message_admin_modify").html("<div class='alert alert-danger' role='alert'>"+res.msg+"</div>");
+                                }
+                                else{
+                                    location.reload();	
+                                }	                         
+                                	
 			}
 		});
 	})
@@ -49,7 +56,13 @@ jQuery(document).ready(function() {
 				"description":description 
 			},                
 			success : function(data, statut){                             
-                                location.reload();		
+                                var res = JSON.parse(data);
+                                if(res != null){
+                                    jQuery("#message_admin_add").html("<div class='alert alert-danger' role='alert'>"+res.msg+"</div>");
+                                }
+                                else{
+                                    location.reload();	
+                                }	 	
 			}
 		});
 	})
