@@ -26,6 +26,13 @@ function afficher_carte(i){
 			}
 		});    
 }
+
+jQuery(document).ready(function() {
+    jQuery(".link_like").mouseover(function() {
+        alert("");
+        //jQuery("#link_like").html('<i id="nolike" style="color: red; cursor:pointer;" class="fa fa-heart-o" aria-hidden="true"></i>');
+    });
+});
 /*
 function afficher_carte(i){
     var location = jQuery("#lien"+i).html();

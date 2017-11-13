@@ -45,8 +45,13 @@
           <p><?= $conferenceInfo["conference"]->getSpeaker()?></p>
         </div>
         <div class="col-2" >          
-          <img style="float: right" src="images/heart.png" width="25" height="25" alt="">
-          <span style="float: right">10</span>
+            <span><?= $conferenceInfo["nbLike"] ?></span>
+          <?php if($conferenceInfo["userCanLike"] == TRUE){ ?>
+            <a class="link_like"><i id="btn_like" style="color: red; cursor:pointer;" class="fa fa-heart" aria-hidden="true"></i></a>        
+          <?php }else { ?>
+            <a class="link_nolike"><i id="nolike" style="color: red; cursor:pointer;" class="fa fa-heart-o" aria-hidden="true"></i></a>  
+          <?php } ?>
+          
         </div>
       </div>
       

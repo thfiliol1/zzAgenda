@@ -23,26 +23,35 @@ class ModeleUtilisateur {
     }
 
 
-    private function creer_tableau_conferences($conferencesInfo) {
+    public function creer_tableau_conferences($conferencesInfo) {
+        $idEmail = $this->getLoginUserConnected();
         
         foreach ($conferencesInfo as $key => $conferenceInfo) {
+            $nbLike = $this->dal->getNbLikeOfConference($conferenceInfo["id"]);
+            $canLike = $this->dal->isLike($conferenceInfo["id"], $idEmail); 
             $conf = new Conference($conferenceInfo["id"],
                                                 $conferenceInfo["date"], 
                                                $conferenceInfo["titre"],
                                                $conferenceInfo["description"], 
                                                $conferenceInfo["adresse"] , 
                                                $conferenceInfo["speaker"]);
-            $tabConferences[] = array("conference" => $conf);
+            $tabConferences[] = array("conference" => $conf, "userCanLike" => $canLike, "nbLike" => $nbLike);
         }
         return $tabConferences;
     }
-
+   
     public function isAuthentificate(){
         if(isset($_SESSION['role'])){
             return TRUE;
         }
         else{
             return FALSE;
+        }
+    }
+    
+    public function getLoginUserConnected(){
+        if(isset($_SESSION['login'])){
+            return $_SESSION['login'];
         }
     }
     

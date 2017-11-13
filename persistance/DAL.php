@@ -44,6 +44,28 @@ class DAL {
         $tabUser[$user->getEmail()] = $user->expose();
         file_put_contents("persistance/BDD/utilisateur.json", json_encode($tabUser));
     }
+    
+    public function isLike($idConf, $idEmail){
+        $tabLike = json_decode(file_get_contents("persistance/BDD/like.json"),TRUE);
+        foreach ($tabLike as $like){
+            if($like["conference_id"]==$idConf && $like["user_id"]==$idEmail){
+                return TRUE;
+            }
+        }
+        return FALSE;
+    }
+    
+    public function getNbLikeOfConference($idConf){
+        $tabLike = json_decode(file_get_contents("persistance/BDD/like.json"),TRUE);
+        $nbConf = 0;
+        foreach ($tabLike as $like){
+            if($like["conference_id"]==$idConf){
+                $nbConf++;
+            }
+        }  
+        return $nbConf;
+    }
+    
     /** REMPLACER BASEDEDONNee par nos opérations de récupération de données JSON dans un fichier
      * Méthode permettant de récupérer les 5 derniers articles aspirés par le robot de web scraping
      * @return tableau ArticleWeb
