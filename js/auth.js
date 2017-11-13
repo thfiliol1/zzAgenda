@@ -1,7 +1,29 @@
 jQuery(document).ready(function() {
 
     jQuery("#buttonAuth").click(function() {
-		var email = jQuery("#field_email").val();
+		login();
+	})
+
+	 jQuery("#form").keyup(function(e) {
+      if(e.keyCode == 13) {
+            login();
+       }
+	});
+
+        
+    jQuery("#link_logout").click(function() {		
+		jQuery.ajax({
+			url: 'index.php?v=deconnexion',
+			type: 'POST',              
+			success : function(data, statut){                                
+                            location.reload();
+			}
+		});
+	})
+});
+
+function login() {
+	var email = jQuery("#field_email").val();
 		var pwd = jQuery("#field_password").val();
 		
 		jQuery.ajax({
@@ -27,15 +49,4 @@ jQuery(document).ready(function() {
                                 }				
 			}
 		});
-	})
-        
-        jQuery("#link_logout").click(function() {		
-		jQuery.ajax({
-			url: 'index.php?v=deconnexion',
-			type: 'POST',              
-			success : function(data, statut){                                
-                            location.reload();
-			}
-		});
-	})
-});
+}

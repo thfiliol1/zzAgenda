@@ -1,6 +1,6 @@
 $(document).ready(function(){
-		var fraImgLink = "http://www.roemheld.de/IT/Data/Images/Address/Frankreich.gif";
-                var engImgLink = "http://www.roemheld.de/IT/Data/Images/Address/Grossbritanien.gif";
+		var fraImgLink = window.href + "/../images/Fr.gif";
+                var engImgLink = window.href + "/../images/Uk.gif";
 		
                 var lang = getCookie("lang");
     

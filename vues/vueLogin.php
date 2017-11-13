@@ -19,7 +19,7 @@
 
     <!--content-->
     <div id="message" class="message"></div>
-    <div class="login">
+    <div id="form" class="login">
         <div class="login-triangle"></div>
 
         <h2 class="login-header"><?=$language["authentication"]?></h2>

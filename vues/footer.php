@@ -20,16 +20,6 @@ $active="";
         </li>
         <?php
         $active="";
-        if($page=="map"){
-            $active="active";
-        }
-        ?>        
-        <li class="nav-item <?= $active ?>">
-          <img src="images/map.png" width="50" height="50">
-          <a id="link_map" class="nav-link" href="index.php?v=map"><?=$language["map"]?></a>
-        </li>
-        <?php
-        $active="";
         if($page=="administration"){
             $active="active";
         }
