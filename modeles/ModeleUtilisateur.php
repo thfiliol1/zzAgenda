@@ -39,7 +39,32 @@ class ModeleUtilisateur {
         }
         return $tabConferences;
     }
-   
+    
+    public function addLike($id_conf){
+        $idEmail = $this->getLoginUserConnected();
+        $tabLike = $this->dal->getLikes();
+        $like = new Like($idEmail, $id_conf);
+        $tabLike[] = $like->expose();
+        $this->dal->saveLikes($tabLike);
+    }
+    
+    public function deleteLike($id_conf){
+        $idEmail = $this->getLoginUserConnected();
+        $tabLike = $this->dal->getLikes();
+        $tabLikeNew = array();
+        foreach ($tabLike as $like){
+            if($like["conference_id"]==$id_conf && $like["user_id"]==$idEmail){
+            }
+            else{
+                $tabLikeNew[] = $like;
+            }
+            
+        }
+        
+        $this->dal->saveLikes($tabLikeNew);        
+    }
+
+
     public function isAuthentificate(){
         if(isset($_SESSION['role'])){
             return TRUE;

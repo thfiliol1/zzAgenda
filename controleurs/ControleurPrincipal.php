@@ -67,7 +67,7 @@ class ControleurPrincipal{
             $modUser=new ModeleUtilisateur();
             
             $tabActionAdministrateur=array('connexion','deconnexion','admin','editConf','addConf','delConf');
-            $tabActionUtilisateur=array('log_in','conferences');
+            $tabActionUtilisateur=array('log_in','conferences','add_like');
             //on teste si le visiteur est authentifiÃ©
           /*  if($modUser->isAuthentificate()){*/
                 if (in_array($action,$tabActionAdministrateur)){

@@ -65,6 +65,12 @@ class DAL {
         }  
         return $nbConf;
     }
+    public function getLikes(){
+        return json_decode(file_get_contents("persistance/BDD/like.json"),TRUE);
+    }
+    public function saveLikes($tabLike){
+        file_put_contents("persistance/BDD/like.json", json_encode($tabLike));
+    }
     
     /** REMPLACER BASEDEDONNee par nos opérations de récupération de données JSON dans un fichier
      * Méthode permettant de récupérer les 5 derniers articles aspirés par le robot de web scraping

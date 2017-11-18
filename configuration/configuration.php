@@ -13,6 +13,8 @@ $actions['admin']='actions/admin.php';
 $actions['editConf']='actions/editConf.php';
 $actions['addConf']='actions/addConf.php';
 $actions['delConf']='actions/delConf.php';
+$actions['addLike']='actions/addLike.php';
+$actions['delLike']='actions/delLike.php';
 //Vues
 $vues['log_in']='vues/vueLogin.php';
 $vues['admin']='vues/vueAdmin.php';

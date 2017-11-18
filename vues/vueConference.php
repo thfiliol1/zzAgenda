@@ -47,9 +47,9 @@
         <div class="col-2" >          
             <span><?= $conferenceInfo["nbLike"] ?></span>
           <?php if($conferenceInfo["userCanLike"] == TRUE){ ?>
-            <a class="link_like"><i id="btn_like" style="color: red; cursor:pointer;" class="fa fa-heart" aria-hidden="true"></i></a>        
+            <a class="link_like"><i id="btn_like_<?= $conferenceInfo["conference"]->getId() ?>" style="color: red; cursor:pointer;" class="fa fa-heart" aria-hidden="true"></i></a>        
           <?php }else { ?>
-            <a class="link_nolike"><i id="nolike" style="color: red; cursor:pointer;" class="fa fa-heart-o" aria-hidden="true"></i></a>  
+            <a class="link_nolike"><i id="btn_nolike_<?= $conferenceInfo["conference"]->getId() ?>" style="color: red; cursor:pointer;" class="fa fa-heart-o" aria-hidden="true"></i></a>  
           <?php } ?>
           
         </div>
