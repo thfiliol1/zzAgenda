@@ -17,7 +17,13 @@ class ControleurUtilisateur{
                         break;
             case "conferences":
                         require ($rep.$actions['conferences']);
-                        break;    
+                        break;   
+            case "add_like":
+                        require ($rep.$actions['addLike']);
+                        break;     
+            case "delete_like":
+                        require ($rep.$actions['delLike']);
+                        break;                    
             default:
                         require ($rep.$actions['login']);
         }

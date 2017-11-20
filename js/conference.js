@@ -26,6 +26,63 @@ function afficher_carte(i){
 			}
 		});    
 }
+
+jQuery(document).ready(function() {
+    jQuery(".link_like").mouseover(function() {
+        var id = jQuery(this).children('i').attr('id');
+        jQuery("#"+id).attr('class','fa fa-heart-o');
+    });
+    
+    jQuery(".link_like").mouseout(function() {
+        var id = jQuery(this).children('i').attr('id');
+        jQuery("#"+id).attr('class','fa fa-heart');
+    });
+    
+    jQuery(".link_like").click(function() {
+        var id = jQuery(this).children('i').attr('id');
+        var res = id.split('_');
+        var idConf = res[2];
+        
+        jQuery.ajax({
+                url: 'index.php?v=delete_like',
+                type: 'POST', 
+                data: {
+                        "id_conference":idConf 
+                },                
+                success : function(data, statut){              
+                        location.reload();                      
+                }
+        });
+    });    
+    
+    jQuery(".link_nolike").mouseover(function() {
+        var id = jQuery(this).children('i').attr('id');
+        jQuery("#"+id).attr('class','fa fa-heart');
+    });
+    
+    jQuery(".link_nolike").mouseout(function() {
+        var id = jQuery(this).children('i').attr('id');
+        jQuery("#"+id).attr('class','fa fa-heart-o');
+    });
+
+    jQuery(".link_nolike").click(function() {
+        var id = jQuery(this).children('i').attr('id');
+        var res = id.split('_');
+        var idConf = res[2];
+        
+        jQuery.ajax({
+                url: 'index.php?v=add_like',
+                type: 'POST', 
+                data: {
+                        "id_conference":idConf 
+                },                
+                success : function(data, statut){              
+                       location.reload();                      
+                }
+        });
+    });
+    
+});
 /*
 function afficher_carte(i){
     var location = jQuery("#lien"+i).html();
@@ -49,5 +106,5 @@ function afficher_carte(i){
     });
 
 
-    
+  
 }*/

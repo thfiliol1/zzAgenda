@@ -39,6 +39,19 @@ class ControleurPrincipal{
        
       /* $tab = json_decode(file_get_contents("persistance/BDD/conference.json"),TRUE);
        var_dump($tab);*/
+       /*
+       $like1 = new Like("thomasfiliol@yahoo.fr", "2");
+       $like2 = new Like("thomasfiliol@yahoo.fr", "1");
+       $like3 = new Like("stephanevalente@gmail.com", "2");
+       
+       $tabLike[] = $like1->expose();
+       $tabLike[] = $like2->expose();
+       $tabLike[] = $like3->expose();
+       file_put_contents("persistance/BDD/like.json", json_encode($tabLike));*/
+       
+       /*$tab = json_decode(file_get_contents("persistance/BDD/like.json"),TRUE);
+       var_dump($tab);*/
+       
        
        try{
             //on initialise un tableau d'erreur
@@ -54,7 +67,7 @@ class ControleurPrincipal{
             $modUser=new ModeleUtilisateur();
             
             $tabActionAdministrateur=array('connexion','deconnexion','admin','editConf','addConf','delConf');
-            $tabActionUtilisateur=array('log_in','conferences');
+            $tabActionUtilisateur=array('log_in','conferences','add_like');
             //on teste si le visiteur est authentifiÃ©
           /*  if($modUser->isAuthentificate()){*/
                 if (in_array($action,$tabActionAdministrateur)){

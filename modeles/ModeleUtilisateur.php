@@ -23,19 +23,47 @@ class ModeleUtilisateur {
     }
 
 
-    private function creer_tableau_conferences($conferencesInfo) {
+    public function creer_tableau_conferences($conferencesInfo) {
+        $idEmail = $this->getLoginUserConnected();
         
         foreach ($conferencesInfo as $key => $conferenceInfo) {
+            $nbLike = $this->dal->getNbLikeOfConference($conferenceInfo["id"]);
+            $canLike = $this->dal->isLike($conferenceInfo["id"], $idEmail); 
             $conf = new Conference($conferenceInfo["id"],
                                                 $conferenceInfo["date"], 
                                                $conferenceInfo["titre"],
                                                $conferenceInfo["description"], 
                                                $conferenceInfo["adresse"] , 
                                                $conferenceInfo["speaker"]);
-            $tabConferences[] = array("conference" => $conf);
+            $tabConferences[] = array("conference" => $conf, "userCanLike" => $canLike, "nbLike" => $nbLike);
         }
         return $tabConferences;
     }
+    
+    public function addLike($id_conf){
+        $idEmail = $this->getLoginUserConnected();
+        $tabLike = $this->dal->getLikes();
+        $like = new Like($idEmail, $id_conf);
+        $tabLike[] = $like->expose();
+        $this->dal->saveLikes($tabLike);
+    }
+    
+    public function deleteLike($id_conf){
+        $idEmail = $this->getLoginUserConnected();
+        $tabLike = $this->dal->getLikes();
+        $tabLikeNew = array();
+        foreach ($tabLike as $like){
+            if($like["conference_id"]==$id_conf && $like["user_id"]==$idEmail){
+            }
+            else{
+                $tabLikeNew[] = $like;
+            }
+            
+        }
+        
+        $this->dal->saveLikes($tabLikeNew);        
+    }
+
 
     public function isAuthentificate(){
         if(isset($_SESSION['role'])){
@@ -43,6 +71,12 @@ class ModeleUtilisateur {
         }
         else{
             return FALSE;
+        }
+    }
+    
+    public function getLoginUserConnected(){
+        if(isset($_SESSION['login'])){
+            return $_SESSION['login'];
         }
     }
     
