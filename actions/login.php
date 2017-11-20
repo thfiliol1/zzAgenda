@@ -30,5 +30,5 @@ if (!$modUtilisateur->isAuthentificate()){
     require ($rep.$vues['log_in']);
 }
 else{
-    
+    require ($rep.$vues['unauthorized']);
 }

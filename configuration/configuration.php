@@ -20,3 +20,4 @@ $actions['delLike']='actions/delLike.php';
 $vues['log_in']='vues/vueLogin.php';
 $vues['admin']='vues/vueAdmin.php';
 $vues['conferences']='vues/vueConference.php';
+$vues['unauthorized']='vues/vueUnauthorized.php';

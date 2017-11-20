@@ -30,3 +30,5 @@ $language['email_not_recognized']='Email not recognized. ';
 $language['already_connected']='You are already connected to another device.';
 $language['password_not_valid']='This password is not valid.';
 $language['location_of_conference']='Location of the conference';
+$language['unAuthorizedTitle']='Unauthorized';
+$language['unAuthorizedContent']='Unauthorized Access';
