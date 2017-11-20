@@ -9,7 +9,7 @@ $speaker=Parametre::getParam('speaker');
 $description=Parametre::getParam('description');
 $date=str_replace('/', '-', $date);
 
-
+$tabMessage = NULL;
 if($idConf == NULL || $date == NULL || $title == NULL || $city == NULL || $speaker == NULL || $description == NULL) {
 	$tabMessage["msg"]=$language['many_field_empty'];
 } else {

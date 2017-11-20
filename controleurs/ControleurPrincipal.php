@@ -58,7 +58,7 @@ class ControleurPrincipal{
             $tabMessages = array ();
             //on rÃ©cupÃ¨re l'action
             if(!isset($_REQUEST['v'])){
-                   $action=NULL;
+                   $action="conferences";
             }
             else{
                 $action = $_REQUEST['v'];
