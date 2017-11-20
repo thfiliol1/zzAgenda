@@ -94,7 +94,15 @@ class ModeleAdministrateur {
 
     public function delConf($id) {
         $tabConfs = $this->dal->donner_conferences();
+        $tabLikes = $this->dal->getLikes();
+        $tabLikesNew = array();
+        foreach ($tabLikes as $like) {
+            if($like["conference_id"]!=$id){
+                $tabLikesNew[] = $like;
+            }
+        }
         unset($tabConfs[$id]);
+        $this->dal->saveLikes($tabLikesNew);
         $this->dal->sauvegarder_conferences($tabConfs);
     }
 
