@@ -12,7 +12,7 @@ require_once '/../../metiers/Hote.php';
 class ModeleUtilisateurTest extends PHPUnit_Framework_TestCase {
 
     /**
-     * @var ModeleUtilisateur
+     * @var UserModel
      */
     private $modeleUtilisateur;
     
@@ -22,7 +22,7 @@ class ModeleUtilisateurTest extends PHPUnit_Framework_TestCase {
      * This method is called before a test is executed.
      */
     public function setUp() {
-        $this->modeleUtilisateur = new ModeleUtilisateur();
+        $this->modeleUtilisateur = new UserModel();
         global $host,$base,$login,$mdp;
         $host="mysql:host=localhost;";
         $base="dbname=vsi";

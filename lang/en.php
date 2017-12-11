@@ -1,6 +1,5 @@
 <?php
 
-
 $language['schedules']='Schedules';
 $language['map']='Map';
 $language['logout']='Logout';

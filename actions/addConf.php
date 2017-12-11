@@ -1,11 +1,11 @@
 <?php
-global $rep,$vues,$language;
+global $rep,$views,$language;
 
-$date=Parametre::getParam('date');
-$title=Parametre::getParam('title');
-$city=Parametre::getParam('city');
-$speaker=Parametre::getParam('speaker');
-$description=Parametre::getParam('description');
+$date=Parameter::getParam('date');
+$title=Parameter::getParam('title');
+$city=Parameter::getParam('city');
+$speaker=Parameter::getParam('speaker');
+$description=Parameter::getParam('description');
 $date=str_replace('/', '-', $date);
 
 
@@ -13,7 +13,7 @@ $tabMessage = NULL;
 if($date == NULL || $title == NULL || $city == NULL || $speaker == NULL || $description == NULL) {
 	$tabMessage["msg"]=$language['many_field_empty'];
 } else {
-	$ModAdmin=new ModeleAdministrateur();
+	$ModAdmin=new AdministratorModel();
 	$ModAdmin->addConf(strtotime($date),$title,$city,$speaker,$description);
 }
 

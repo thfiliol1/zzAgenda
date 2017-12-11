@@ -2,7 +2,7 @@
 /**
  * Classe réprésentant le contrôleur d'un utilisateur 
  */
-class ControleurUtilisateur{
+class UserController{
     /**
      * 
      * @global String $rep Chemin absolu du répertoire contenant le projet

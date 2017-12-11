@@ -1,6 +1,5 @@
 <?php
 
-
 $language['schedules']='Conférences';
 $language['map']='Carte';
 $language['logout']='Déconnexion';

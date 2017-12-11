@@ -2,7 +2,7 @@
 /**
  * Classe modélisant toutes les méthodes pouvant être appelé par un utilisateur 
  */
-class ModeleUtilisateur {
+class UserModel {
 
     private $dal;
     /**
@@ -12,18 +12,18 @@ class ModeleUtilisateur {
 	$this->dal = new DAL();
     }
     
-    public function donner_conferences_futur(){
-        $conferencesInfo = $this->dal->donner_conferences_futur();
-        return $this->creer_tableau_conferences($conferencesInfo);
+    public function get_future_conferences(){
+        $conferencesInfo = $this->dal->get_future_conferences();
+        return $this->create_table_conferences($conferencesInfo);
     }
 
-    public function donner_conferences(){
-        $conferencesInfo = $this->dal->donner_conferences();
-        return $this->creer_tableau_conferences($conferencesInfo);
+    public function get_conferences(){
+        $conferencesInfo = $this->dal->get_conferences();
+        return $this->create_table_conferences($conferencesInfo);
     }
 
 
-    public function creer_tableau_conferences($conferencesInfo) {
+    public function create_table_conferences($conferencesInfo) {
         $idEmail = $this->getLoginUserConnected();
         
         foreach ($conferencesInfo as $key => $conferenceInfo) {
@@ -31,9 +31,9 @@ class ModeleUtilisateur {
             $canLike = $this->dal->isLike($conferenceInfo["id"], $idEmail); 
             $conf = new Conference($conferenceInfo["id"],
                                                 $conferenceInfo["date"], 
-                                               $conferenceInfo["titre"],
+                                               $conferenceInfo["title"],
                                                $conferenceInfo["description"], 
-                                               $conferenceInfo["adresse"] , 
+                                               $conferenceInfo["address"] , 
                                                $conferenceInfo["speaker"]);
             $tabConferences[] = array("conference" => $conf, "userCanLike" => $canLike, "nbLike" => $nbLike);
         }
@@ -92,19 +92,5 @@ class ModeleUtilisateur {
         else{
             return FALSE;
         }
-    }
-    
-    
-    /** CECI EST UN EXEMPLE
-     * Méthode permettant de récupérer les derniers Article Web 
-     * @return tableau ArticleWeb 
-     */
-    public function donnerDerniersArticles($filtre){
-        $tabArticles = $this->dal->donnerDerniersArticles($filtre);
-        foreach ($tabArticles as $Article) {
-            $tabMotsClefs = $this->donnerMotsClefsArticle($Article->getId());
-            $Article->setMots_cles($tabMotsClefs);
-        }
-        return $tabArticles;
     }
 }

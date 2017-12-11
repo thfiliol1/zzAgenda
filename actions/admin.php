@@ -1,9 +1,8 @@
 <?php
+global $rep, $views, $language;
+$modAdmin=new AdministratorModel();
+$modUser=new UserModel();
 
-global $rep, $vues, $language;
-$modAdmin=new ModeleAdministrateur();
-$modUser=new ModeleUtilisateur();
-
-$tabConferences = $modUser->donner_conferences();
+$tabConferences = $modUser->get_conferences();
 $page="administration";
-require ($rep.$vues['admin']);
+require ($rep.$views['admin']);

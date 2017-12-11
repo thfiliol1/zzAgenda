@@ -1,12 +1,12 @@
 <?php
-global $rep,$vues,$language;
+global $rep,$views,$language;
 
-$idConf=Parametre::getParam('id');
-$date=Parametre::getParam('date');
-$title=Parametre::getParam('title');
-$city=Parametre::getParam('city');
-$speaker=Parametre::getParam('speaker');
-$description=Parametre::getParam('description');
+$idConf=Parameter::getParam('id');
+$date=Parameter::getParam('date');
+$title=Parameter::getParam('title');
+$city=Parameter::getParam('city');
+$speaker=Parameter::getParam('speaker');
+$description=Parameter::getParam('description');
 $date=str_replace('/', '-', $date);
 
 $tabMessage = NULL;
@@ -14,7 +14,7 @@ if($idConf == NULL || $date == NULL || $title == NULL || $city == NULL || $speak
 	$tabMessage["msg"]=$language['many_field_empty'];
 } else {
 	$conf = new Conference($idConf,strtotime($date),$title,$description,$city,$speaker);
-	$ModAdmin=new ModeleAdministrateur();
+	$ModAdmin=new AdministratorModel();
 	$ModAdmin->editConf($conf);
 }
 

@@ -7,7 +7,7 @@ require '/../../verification/Parametre.php';
 class ParametreTest extends PHPUnit_Framework_TestCase {
 
     /**
-     * @var Parametre
+     * @var Parameter
      */
     private $parametre;
 
@@ -16,7 +16,7 @@ class ParametreTest extends PHPUnit_Framework_TestCase {
      * This method is called before a test is executed.
      */
     protected function setUp() {
-        $this->parametre = new Parametre();
+        $this->parametre = new Parameter();
     }
 
     /**

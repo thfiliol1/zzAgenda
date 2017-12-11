@@ -37,10 +37,10 @@
             </div>            
         </div>
           <div class="col-8" style="margin:0px auto">
-          <h2><?= $conferenceInfo["conference"]->getTitre()?></h2>
+          <h2><?= $conferenceInfo["conference"]->getTitle()?></h2>
           <p><?= $conferenceInfo["conference"]->getDescription()?></p>
           <img style="float: left" class="iconTop" src="images/landmark.png" width="25" height="25" alt="">
-          <p><a data-title="map" data-toggle="modal" data-target="#map" id="lien<?=$i?>" href="#" onclick="afficher_carte(<?=$i?>)"><?= $conferenceInfo["conference"]->getAdresse()?></a></p>
+          <p><a data-title="map" data-toggle="modal" data-target="#map" id="lien<?=$i?>" href="#" onclick="display_map(<?=$i?>)"><?= $conferenceInfo["conference"]->getAddress()?></a></p>
           <img style="float: left" class="iconTop" src="images/micro.png" width="25" height="25" alt="">
           <p><?= $conferenceInfo["conference"]->getSpeaker()?></p>
         </div>

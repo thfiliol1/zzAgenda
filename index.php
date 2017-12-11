@@ -6,8 +6,8 @@ session_start();
 require_once(__DIR__.'/configuration/configuration.php');
 
 //autochargement des classes
-require_once(__DIR__.'/configuration/Chargeur.php');
-Chargeur::charger();
+require_once(__DIR__.'/configuration/Loader.php');
+Loader::load();
 
 if(isset($_COOKIE["lang"])){
     switch ($_COOKIE["lang"]){
@@ -25,7 +25,6 @@ else{
     require_once(__DIR__.'/lang/fr.php');
 }
 
-//var_dump($_SESSION);
 //instanciation du contrôleur principal
-new ControleurPrincipal();
+new FrontController();
 

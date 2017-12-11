@@ -59,7 +59,7 @@ class ArticleWebTest extends PHPUnit_Framework_TestCase
      */
     public function testGetTitre()
     {
-       $this->assertEquals($this->article->getTitre(),mb_convert_encoding(stripslashes("Cattle farmers should watch for blood disease - Agri News"),"UTF-8"));
+       $this->assertEquals($this->article->getTitle(),mb_convert_encoding(stripslashes("Cattle farmers should watch for blood disease - Agri News"),"UTF-8"));
     }
 
     /**
@@ -161,7 +161,7 @@ class ArticleWebTest extends PHPUnit_Framework_TestCase
     public function testSetTitre()
     {
         $this->article->setTitre("ceci est un test");
-        $this->assertEquals($this->article->getTitre(),"ceci est un test");
+        $this->assertEquals($this->article->getTitle(),"ceci est un test");
     }
 
     /**
@@ -191,13 +191,13 @@ class ArticleWebTest extends PHPUnit_Framework_TestCase
      */
     public function testMarquageExpressionTitre()
     {
-        $oldTaille = strlen($this->article->getTitre());
+        $oldTaille = strlen($this->article->getTitle());
         $this->article->marquageExpressionTitre("Cattle");
-        $this->assertLessThanOrEqual(strlen($this->article->getTitre()),$oldTaille);
+        $this->assertLessThanOrEqual(strlen($this->article->getTitle()),$oldTaille);
         //si pas l'expression n'est pas dans le titre
-        $oldTaille = strlen($this->article->getTitre());
+        $oldTaille = strlen($this->article->getTitle());
         $this->article->marquageExpressionTitre("dogs");
-        $this->assertEquals(strlen($this->article->getTitre()),$oldTaille);
+        $this->assertEquals(strlen($this->article->getTitle()),$oldTaille);
     }
 
     /**

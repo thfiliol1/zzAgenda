@@ -13,7 +13,7 @@ jQuery(document).ready(function() {
         
     jQuery("#link_logout").click(function() {		
 		jQuery.ajax({
-			url: 'index.php?v=deconnexion',
+			url: 'index.php?v=disconnect',
 			type: 'POST',              
 			success : function(data, statut){                                
                             location.reload();
@@ -27,7 +27,7 @@ function login() {
 		var pwd = jQuery("#field_password").val();
 		
 		jQuery.ajax({
-			url: 'index.php?v=connexion',
+			url: 'index.php?v=connect',
 			type: 'POST', 
 			data: {
 				"email":email,

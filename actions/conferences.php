@@ -1,9 +1,9 @@
 <?php
-global $rep, $vues, $language;
-$modAdmin=new ModeleAdministrateur();
-$modUser=new ModeleUtilisateur();
-$tabConferences = $modUser->donner_conferences_futur();
+global $rep, $views, $language;
+$modAdmin=new AdministratorModel();
+$modUser=new UserModel();
+$tabConferences = $modUser->get_future_conferences();
 
 $page="schedules";
-require ($rep.$vues['conferences']);
+require ($rep.$views['conferences']);
 
