@@ -1,0 +1,15 @@
+{
+    "name": "thfiliol1/zzAgenda",
+    "description": "Projet ZZAgenda.",
+    "keywords": ["travis"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Thomas filiol",
+            "email": "thomas.filiol@etu.uca.fr"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "4.0.*"
+    }
+}

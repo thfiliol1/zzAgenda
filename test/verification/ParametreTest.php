@@ -33,7 +33,7 @@ class ParametreTest extends PHPUnit_Framework_TestCase {
      */
     public function testGetParam() {
         //variable param n'existe pas
-        $this->assertNull($this->parametre->getParam("param"),"test");
+        $this->assertNull($this->parametre->getParam("param"),"parameter not known");
     }
 
 }
