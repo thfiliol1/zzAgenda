@@ -5,6 +5,7 @@
  */
 require './persistence/DAL.php';
 require './business/Conference.php';
+require './business/User.php';
 
 class DALTest extends PHPUnit_Framework_TestCase {
 
@@ -100,10 +101,18 @@ class DALTest extends PHPUnit_Framework_TestCase {
      * @todo   Implement testSave_state_user().
      */
     public function testSave_state_user() {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
-        );
+        $userOrigin = new User("Stephane", "Valente", "stephanevalente@gmail.com", "f33227a7e80a9709f6998f542bb0ce6b", "admin", "0");
+        $user = new User("Stephane", "Valente", "stephanevalente@gmail.com", "1234", "user", "1");
+        
+        $this->dal->save_state_user($user, "./test/persistence/DB/user.json");   
+        $userInfo = $this->dal->get_user("stephanevalente@gmail.com", "./test/persistence/DB/user.json");
+        $this->assertInternalType('array',$userInfo);
+        $this->assertEquals('Stephane', $userInfo['firstname']);
+        $this->assertEquals('Valente', $userInfo['lastname']);
+        $this->assertEquals('stephanevalente@gmail.com', $userInfo['email']);
+        $this->assertEquals('user', $userInfo['role']);
+        $this->assertEquals(1, $userInfo['online']);
+        $this->dal->save_state_user($userOrigin, "./test/persistence/DB/user.json");
     }
 
     /**
