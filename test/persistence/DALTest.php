@@ -33,7 +33,7 @@ class DALTest extends PHPUnit_Framework_TestCase {
      */
     public function testGet_user() {
         $email="stephanevalente@gmail.com";
-        $this->assertArraySubset($this->dal->get_user($email, "./test/persistence/DB/user.json"),[$email => ['firstname', 'lastname', 'email', 'password', 'role', 'online']]);
+        $this->assertArraySubset($this->dal->get_user($email, "./test/persistence/DB/user.json"),['firstname', 'lastname', 'email', 'password', 'role', 'online']);
     }
 
     /**
