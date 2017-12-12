@@ -9,7 +9,8 @@ jQuery(document).ready(function() {
 		var title = jQuery("#edit_title").val();
 		var city = jQuery("#edit_city").val();
 		var speaker = jQuery("#edit_speaker").val();
-		var description = jQuery("#edit_description").val();
+		var description = jQuery("#edit_description").html();
+		console.log(description);
 		
 		
 		jQuery.ajax({
@@ -97,7 +98,7 @@ function edit_click(clicked_id) {
     $("#edit_title").val(document.getElementsByName('td_titre'+clicked_id)[0].innerHTML);
     $("#edit_city").val(document.getElementsByName('td_city'+clicked_id)[0].innerHTML);
     $("#edit_speaker").val(document.getElementsByName('td_speaker'+clicked_id)[0].innerHTML);
-    $("#edit_description").val(document.getElementsByName('td_description'+clicked_id)[0].innerHTML);
+    $("#edit_description").html(document.getElementsByName('td_description'+clicked_id)[0].innerHTML);
 }
 
 function del_click(clicked_id) {

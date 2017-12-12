@@ -18,7 +18,6 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/moment-with-locales.js"></script>
     <script src="js/base.js"></script>
-    <script src="js/MyWysiwyg.js"></script>
     <script src="js/admin.js"></script>
     <script src="js/tempusdominus-bootstrap-4.js"></script>
     <script src="js/timepicker.js"></script>
@@ -119,7 +118,26 @@
                 <input id="edit_speaker" class="form-control " type="text" placeholder=<?=$language["speaker"]?>>
               </div>
               <div class="form-group">
-                <textarea id="edit_description" rows="2" class="form-control" placeholder=<?=$language["description"]?>></textarea>
+                <div class="btn-toolbar" data-role="editor-toolbar">
+                  <div class="btn-group">
+                    <a class="btn" onclick="commande('bold');" title="Bold"><i class="icon-bold"></i></a>
+                    <a class="btn" onclick="commande('italic');" title="Italic"><i class="icon-italic"></i></a>
+                    <a class="btn" onclick="commande('strikethrough');" title="Strikethrough"><i class="icon-strikethrough"></i></a>
+                    <a class="btn" onclick="commande('underline');" title="Underline"><i class="icon-underline"></i></a>
+                  </div> 
+                  <div class="btn-group">
+                    <a class="btn" onclick="commande('justifyLeft');" title="JustifyLeft"><i class="icon-align-left"></i></a>
+                    <a class="btn" onclick="commande('justifyCenter');" title="JustifyCenter"><i class="icon-align-center"></i></a>
+                    <a class="btn" onclick="commande('justifyRight');" title="JustifyRight"><i class="icon-align-right"></i></a>
+                    <a class="btn" onclick="commande('justifyFull');" title="JustifyFull"><i class="icon-align-justify"></i></a>
+                  </div>    
+                  <div class="btn-group">
+                    <a class="btn" onclick="commande('insertUnorderedList');" title="InsertUnorderedList"><i class="icon-list-ul"></i></a>
+                    <a class="btn" onclick="commande('insertOrderedList');" title="InsertOrderedList"><i class="icon-list-ol"></i></a>
+                  </div>      
+                </div>  
+                <div id="edit_description" rows="2" class="form-control" contenteditable >
+                </div>
               </div>
 
             </div>
@@ -186,8 +204,8 @@
                     <a class="btn" onclick="commande('insertOrderedList');" title="InsertOrderedList"><i class="icon-list-ol"></i></a>
                   </div>      
                 </div>  
-                <div id="add_description" rows="2" class="form-control" contenteditable data-ph=<?=$language["description"]?>>
-                
+                <div id="add_description" rows="2" class="form-control" contenteditable >
+                  <?=$language["description"]?>&hellip;
                 </div>
               </div>
 
