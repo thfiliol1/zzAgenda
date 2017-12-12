@@ -42,7 +42,8 @@ jQuery(document).ready(function() {
 		var title = jQuery("#add_title").val();
 		var city = jQuery("#add_city").val();
 		var speaker = jQuery("#add_speaker").val();
-		var description = jQuery("#add_description").val();
+		var description = jQuery("#add_description").html();
+
 		
 		
 		jQuery.ajax({
@@ -88,6 +89,8 @@ jQuery(document).ready(function() {
     
 });
 
+
+
 function edit_click(clicked_id) {
 	edit_id = document.getElementsByName('td_idConf'+clicked_id)[0].innerHTML;
     $("#edit_date").val(document.getElementsByName('td_date'+clicked_id)[0].innerHTML);
@@ -99,4 +102,12 @@ function edit_click(clicked_id) {
 
 function del_click(clicked_id) {
 	del_id = document.getElementsByName('td_idConf'+clicked_id)[0].innerHTML;
+}
+
+function commande(nom, argument) {
+  if (typeof argument === 'undefined') {
+    argument = '';
+  }
+  
+  document.execCommand(nom, false, argument);
 }
