@@ -35,5 +35,11 @@ class ParameterTest extends PHPUnit_Framework_TestCase {
         //variable param n'existe pas
         $this->assertNull($this->parameter->getParam("param"),"parameter not known");
     }
+    
+    public function testGetParamExist() {
+        //variable existe
+        $REQUEST["param"]="exist";
+        $this->assertNull($this->parameter->getParam("param"),"exist");
+    }
 
 }
