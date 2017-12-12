@@ -1,11 +1,11 @@
 <?php
 global $rep,$views,$language;
 
-$date=htmlentities(Parameter::getParam('date'),ENT_QUOTES);
-$title=htmlentities(Parameter::getParam('title'),ENT_QUOTES);
-$city=htmlentities(Parameter::getParam('city'),ENT_QUOTES);
-$speaker=htmlentities(Parameter::getParam('speaker'),ENT_QUOTES);
-$description=Parameter::getParam('description');
+$date=htmlentities(Parameter::getParam('date'),ENT_QUOTES,"UTF-8");
+$title=htmlentities(Parameter::getParam('title'),ENT_QUOTES,"UTF-8");
+$city=htmlentities(Parameter::getParam('city'),ENT_QUOTES,"UTF-8");
+$speaker=htmlentities(Parameter::getParam('speaker'),ENT_QUOTES,"UTF-8");
+$description=strip_tags(Parameter::getParam('description'),'<b><i><strike><u><ul><ol>');
 $date=str_replace('/', '-', $date);
 
 
