@@ -139,7 +139,7 @@ class DALTest extends PHPUnit_Framework_TestCase {
      * @todo   Implement testGetLikes().
      */
     public function testGetLikes() {
-        $this->assertEquals(2, count($this->dal->getLikes("./test/persistence/DB/like.json")));
+        $this->assertEquals(3, count($this->dal->getLikes("./test/persistence/DB/like.json")));
     }
 
     /**
