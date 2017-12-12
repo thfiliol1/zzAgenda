@@ -6,6 +6,7 @@
 require './persistence/DAL.php';
 require './business/Conference.php';
 require './business/User.php';
+require './business/Like.php';
 
 class DALTest extends PHPUnit_Framework_TestCase {
 
@@ -130,7 +131,7 @@ class DALTest extends PHPUnit_Framework_TestCase {
      * @todo   Implement testGetNbLikeOfConference().
      */
     public function testGetNbLikeOfConference() {
-        $this->equals(2,  $this->dal->getNbLikeOfConference(2, "./test/persistence/DB/like.json"));
+        $this->assertEquals(2,  $this->dal->getNbLikeOfConference(2, "./test/persistence/DB/like.json"));
     }
 
     /**
@@ -138,7 +139,7 @@ class DALTest extends PHPUnit_Framework_TestCase {
      * @todo   Implement testGetLikes().
      */
     public function testGetLikes() {
-        $this->equals(2, count($this->dal->getLikes("./test/persistence/DB/like.json")));
+        $this->assertEquals(2, count($this->dal->getLikes("./test/persistence/DB/like.json")));
     }
 
     /**
@@ -146,10 +147,14 @@ class DALTest extends PHPUnit_Framework_TestCase {
      * @todo   Implement testSaveLikes().
      */
     public function testSaveLikes() {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
-        );
+        $likes = $this->dal->getLikes("./test/persistence/DB/like.json");
+        
+        $like = new Like("thomasfiliol@yahoo.fr", 5);
+        $tabLike[] = $like->expose();
+        $this->dal->saveLikes($tabLike, "./test/persistence/DB/like.json");
+        
+        $this->assertEquals(1,  $this->dal->getNbLikeOfConference(5, "./test/persistence/DB/like.json"));
+        $this->dal->saveLikes($likes, "./test/persistence/DB/like.json");
     }
 
 }
