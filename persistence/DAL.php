@@ -40,7 +40,7 @@ class DAL {
     public function save_state_user($user,$file="persistence/DB/user.json"){
         $tabUser = json_decode(file_get_contents($file),TRUE);
         $tabUser[$user->getEmail()] = $user->expose();
-        file_put_contents("persistence/DB/user.json", json_encode($tabUser));
+        file_put_contents($file, json_encode($tabUser));
     }
     
     public function isLike($idConf, $idEmail, $file="persistence/DB/like.json"){

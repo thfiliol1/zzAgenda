@@ -111,8 +111,8 @@ class DALTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals('Stephane', $userInfo['firstname']);
         $this->assertEquals('Valente', $userInfo['lastname']);
         $this->assertEquals('stephanevalente@gmail.com', $userInfo['email']);
-        $this->assertEquals(1, $userInfo['online']);
         $this->assertEquals('user', $userInfo['role']);
+        $this->assertEquals(1, $userInfo['online']);
         
         $this->dal->save_state_user($userOrigin, "./test/persistence/DB/user.json");
     }
@@ -122,10 +122,7 @@ class DALTest extends PHPUnit_Framework_TestCase {
      * @todo   Implement testIsLike().
      */
     public function testIsLike() {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
-        );
+        $this->assertTrue($this->dal->isLike(1, "thomasfiliol@yahoo.fr", "./test/persistence/DB/like.json"));
     }
 
     /**
@@ -133,10 +130,7 @@ class DALTest extends PHPUnit_Framework_TestCase {
      * @todo   Implement testGetNbLikeOfConference().
      */
     public function testGetNbLikeOfConference() {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
-        );
+        $this->equals(2,  $this->dal->getNbLikeOfConference(2, "./test/persistence/DB/like.json"));
     }
 
     /**
@@ -144,10 +138,7 @@ class DALTest extends PHPUnit_Framework_TestCase {
      * @todo   Implement testGetLikes().
      */
     public function testGetLikes() {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
-        );
+        $this->equals(2, count($this->dal->getLikes("./test/persistence/DB/like.json")));
     }
 
     /**
