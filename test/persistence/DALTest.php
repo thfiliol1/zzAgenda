@@ -47,10 +47,15 @@ class DALTest extends PHPUnit_Framework_TestCase {
      * @todo   Implement testGet_future_conferences().
      */
     public function testGet_future_conferences() {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
-        );
+       $userInfo = $this->dal->get_future_conferences("./test/persistence/DB/conference.json");
+       foreach ($conferencesInfo as $key => $conferenceInfo) {
+           $this->assertGreaterThan($conferenceInfo['date'], time());
+           $this->assertArrayHasKey('id', $conferenceInfo);
+           $this->assertArrayHasKey('title', $conferenceInfo);
+           $this->assertArrayHasKey('description', $conferenceInfo);
+           $this->assertArrayHasKey('address', $conferenceInfo);
+           $this->assertArrayHasKey('speaker', $conferenceInfo);
+       }
     }
 
     /**
