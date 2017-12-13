@@ -9,7 +9,8 @@ jQuery(document).ready(function() {
 		var title = jQuery("#edit_title").val();
 		var city = jQuery("#edit_city").val();
 		var speaker = jQuery("#edit_speaker").val();
-		var description = jQuery("#edit_description").val();
+		var description = jQuery("#edit_description").html();
+		console.log(description);
 		
 		
 		jQuery.ajax({
@@ -42,7 +43,8 @@ jQuery(document).ready(function() {
 		var title = jQuery("#add_title").val();
 		var city = jQuery("#add_city").val();
 		var speaker = jQuery("#add_speaker").val();
-		var description = jQuery("#add_description").val();
+		var description = jQuery("#add_description").html();
+
 		
 		
 		jQuery.ajax({
@@ -88,15 +90,25 @@ jQuery(document).ready(function() {
     
 });
 
+
+
 function edit_click(clicked_id) {
 	edit_id = document.getElementsByName('td_idConf'+clicked_id)[0].innerHTML;
     $("#edit_date").val(document.getElementsByName('td_date'+clicked_id)[0].innerHTML);
     $("#edit_title").val(document.getElementsByName('td_titre'+clicked_id)[0].innerHTML);
     $("#edit_city").val(document.getElementsByName('td_city'+clicked_id)[0].innerHTML);
     $("#edit_speaker").val(document.getElementsByName('td_speaker'+clicked_id)[0].innerHTML);
-    $("#edit_description").val(document.getElementsByName('td_description'+clicked_id)[0].innerHTML);
+    $("#edit_description").html(document.getElementsByName('td_description'+clicked_id)[0].innerHTML);
 }
 
 function del_click(clicked_id) {
 	del_id = document.getElementsByName('td_idConf'+clicked_id)[0].innerHTML;
+}
+
+function commande(nom, argument) {
+  if (typeof argument === 'undefined') {
+    argument = '';
+  }
+  
+  document.execCommand(nom, false, argument);
 }

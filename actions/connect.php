@@ -14,6 +14,7 @@ else{
         try{
             $user = $ModAdmin->connect($email, $mdp);
             $tabMessage["error"]=0;
+            setcookie("last_login", $email);
             $tabMessage["msg"]=$language['welcome'].$user->getFirstname()." :)";
         }
         catch (Exception $e){

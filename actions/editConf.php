@@ -1,12 +1,12 @@
 <?php
 global $rep,$views,$language;
 
-$idConf=Parameter::getParam('id');
-$date=Parameter::getParam('date');
-$title=Parameter::getParam('title');
-$city=Parameter::getParam('city');
-$speaker=Parameter::getParam('speaker');
-$description=Parameter::getParam('description');
+$idConf=htmlentities(Parameter::getParam('id'),ENT_QUOTES,"UTF-8");
+$date=htmlentities(Parameter::getParam('date'),ENT_QUOTES,"UTF-8");
+$title=htmlentities(Parameter::getParam('title'),ENT_QUOTES,"UTF-8");
+$city=htmlentities(Parameter::getParam('city'),ENT_QUOTES,"UTF-8");
+$speaker=htmlentities(Parameter::getParam('speaker'),ENT_QUOTES,"UTF-8");
+$description=strip_tags(Parameter::getParam('description'),'<b><i><strike><u><ul><ol>');
 $date=str_replace('/', '-', $date);
 
 $tabMessage = NULL;
