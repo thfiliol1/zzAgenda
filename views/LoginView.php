@@ -25,7 +25,7 @@
         <h2 class="login-header"><?=$language["authentication"]?></h2>
 
         <div class="login-container">
-            <p><input id="field_email" type="email" placeholder="Email"></p>
+            <p><input id="field_email" type="email" placeholder="Email" value="<?=$last_login?>"></p>
             <p><input id="field_password" type="password" placeholder="<?=$language["password"]?>"></p>
             <p class="text-center"><button class="btn btn-primary" id="buttonAuth"><?=$language["login"]?></button>
             </p>

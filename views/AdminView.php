@@ -204,8 +204,8 @@
                     <a class="btn" onclick="commande('insertOrderedList');" title="InsertOrderedList"><i class="icon-list-ol"></i></a>
                   </div>      
                 </div>  
-                <div id="add_description" rows="2" class="form-control" contenteditable >
-                  <?=$language["description"]?>&hellip;
+                <div id="add_description" rows="2" class="form-control" contenteditable>
+
                 </div>
               </div>
 
