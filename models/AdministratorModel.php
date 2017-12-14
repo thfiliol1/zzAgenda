@@ -4,11 +4,13 @@ class AdministratorModel {
 
     private $dal;
     
-    public function __construct(){
-	$this->dal = new DAL();
+    public function __construct($pathDBUser="persistence/DB/user.json", 
+                                $pathDBConference="persistence/DB/conference.json", 
+                                $pathDBLike="persistence/DB/like.json"){
+	$this->dal = new DAL($pathDBUser,$pathDBConference,$pathDBLike);
     }
 
-    public function connect($email,$mdp){
+    public function connect($email,$pwd){
         global $language;
         $userInfo = $this->dal->get_user($email);
         if ($userInfo == FALSE){
@@ -21,7 +23,7 @@ class AdministratorModel {
                                     $userInfo["password"],
                                     $userInfo["role"],1);
             
-            if(md5($mdp) == $userInfo["password"]){
+            if(md5($pwd) == $userInfo["password"]){
                 if($userInfo["online"] == 0){
                     $this->dal->save_state_user($user);
                     if($userInfo["role"] == "admin"){

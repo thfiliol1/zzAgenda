@@ -8,8 +8,10 @@ class UserModel {
     /**
      * Constructeur de la classe
      */
-    public function __construct(){
-	$this->dal = new DAL();
+    public function __construct($pathDBUser="persistence/DB/user.json", 
+                                $pathDBConference="persistence/DB/conference.json", 
+                                $pathDBLike="persistence/DB/like.json"){
+        $this->dal=new DAL($pathDBUser,$pathDBConference,$pathDBLike);
     }
     
     public function get_future_conferences(){
@@ -25,7 +27,7 @@ class UserModel {
 
     public function create_table_conferences($conferencesInfo) {
         $idEmail = $this->getLoginUserConnected();
-        
+        $tabConferences=array();
         foreach ($conferencesInfo as $key => $conferenceInfo) {
             $nbLike = $this->dal->getNbLikeOfConference($conferenceInfo["id"]);
             $canLike = $this->dal->isLike($conferenceInfo["id"], $idEmail); 

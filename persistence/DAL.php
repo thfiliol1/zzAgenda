@@ -3,13 +3,23 @@
  * Classe permettant d'isoler les requêtes SQL et de modéliser les résultats en objet métier
  */
 class DAL {
+    
+    private $pathDBUser;
+    private $pathDBConference;
+    private $pathDBLike;
     /**
      * Constructeur de la classe
      */
-    public function __construct(){}
+    public function __construct($pathDBUser="persistence/DB/user.json", 
+                                $pathDBConference="persistence/DB/conference.json", 
+                                $pathDBLike="persistence/DB/like.json"){
+        $this->pathDBUser=$pathDBUser;
+        $this->pathDBConference=$pathDBConference;
+        $this->pathDBLike=$pathDBLike;
+    }
     
     public function get_user($email){
-        $tab = json_decode(file_get_contents("persistence/DB/user.json"),TRUE);
+        $tab = json_decode(file_get_contents($this->pathDBUser),TRUE);
         if(array_key_exists($email,$tab)){
             return $tab[$email];
         }
@@ -19,7 +29,7 @@ class DAL {
     }
     
     public function get_future_conferences(){
-        $tab = json_decode(file_get_contents("persistence/DB/conference.json"),TRUE);
+        $tab = json_decode(file_get_contents($this->pathDBConference),TRUE);
 
         foreach ($tab as $key => $conferenceInfo) {
             if($conferenceInfo["date"]>  time()){
@@ -30,21 +40,21 @@ class DAL {
     }
 
     public function get_conferences(){
-        return json_decode(file_get_contents("persistence/DB/conference.json"),TRUE);
+        return json_decode(file_get_contents($this->pathDBConference),TRUE);
     }
 
     public function save_conferences($tabConf) {
-        file_put_contents("persistence/DB/conference.json", json_encode($tabConf));
+        file_put_contents($this->pathDBConference, json_encode($tabConf));
     }
 
     public function save_state_user($user){
-        $tabUser = json_decode(file_get_contents("persistence/DB/user.json"),TRUE);
+        $tabUser = json_decode(file_get_contents($this->pathDBUser),TRUE);
         $tabUser[$user->getEmail()] = $user->expose();
-        file_put_contents("persistence/DB/user.json", json_encode($tabUser));
+        file_put_contents($this->pathDBUser, json_encode($tabUser));
     }
     
     public function isLike($idConf, $idEmail){
-        $tabLike = json_decode(file_get_contents("persistence/DB/like.json"),TRUE);
+        $tabLike = json_decode(file_get_contents($this->pathDBLike),TRUE);
         foreach ($tabLike as $like){
             if($like["conference_id"]==$idConf && $like["user_id"]==$idEmail){
                 return TRUE;
@@ -54,7 +64,7 @@ class DAL {
     }
     
     public function getNbLikeOfConference($idConf){
-        $tabLike = json_decode(file_get_contents("persistence/DB/like.json"),TRUE);
+        $tabLike = json_decode(file_get_contents($this->pathDBLike),TRUE);
         $nbConf = 0;
         foreach ($tabLike as $like){
             if($like["conference_id"]==$idConf){
@@ -64,9 +74,9 @@ class DAL {
         return $nbConf;
     }
     public function getLikes(){
-        return json_decode(file_get_contents("persistence/DB/like.json"),TRUE);
+        return json_decode(file_get_contents($this->pathDBLike),TRUE);
     }
     public function saveLikes($tabLike){
-        file_put_contents("persistence/DB/like.json", json_encode($tabLike));
+        file_put_contents($this->pathDBLike, json_encode($tabLike));
     }    
 }
