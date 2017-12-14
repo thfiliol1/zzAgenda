@@ -5,8 +5,6 @@
  */
 require './models/UserModel.php';
 
-//require '/../../models/UserModel.php';
-
 class UserModelTest extends PHPUnit_Framework_TestCase {
 
     /**
@@ -19,9 +17,6 @@ class UserModelTest extends PHPUnit_Framework_TestCase {
      * This method is called before a test is executed.
      */
     protected function setUp() {
-       /* $this->userModel = new UserModel("C:/wamp/www/zzAgenda/test/persistence/DB/user.json",
-                            "C:/wamp/www/zzAgenda/test/persistence/DB/conference.json",
-                            "C:/wamp/www/zzAgenda/test/persistence/DB/like.json");*/
         $this->userModel = new UserModel("./test/persistence/DB/user.json",
                             "./test/persistence/DB/conference.json",
                             "./test/persistence/DB/like.json");
