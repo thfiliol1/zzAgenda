@@ -21,12 +21,18 @@ class AdministratorModelTest extends PHPUnit_Framework_TestCase {
      * This method is called before a test is executed.
      */
     protected function setUp() {
-        $this->administratorModel = new AdministratorModel("C:/wamp/www/zzAgenda/test/persistence/DB/user.json",
+       /* $this->administratorModel = new AdministratorModel("C:/wamp/www/zzAgenda/test/persistence/DB/user.json",
                             "C:/wamp/www/zzAgenda/test/persistence/DB/conference.json",
                             "C:/wamp/www/zzAgenda/test/persistence/DB/like.json");
         $this->dal = new DAL("C:/wamp/www/zzAgenda/test/persistence/DB/user.json",
                             "C:/wamp/www/zzAgenda/test/persistence/DB/conference.json",
-                            "C:/wamp/www/zzAgenda/test/persistence/DB/like.json");
+                            "C:/wamp/www/zzAgenda/test/persistence/DB/like.json");*/
+        $this->administratorModel = new AdministratorModel("./test/persistence/DB/user.json",
+                            "./test/persistence/DB/conference.json",
+                            "./test/persistence/DB/like.json");
+        $this->dal = new DAL("./test/persistence/DB/user.json",
+                            "./test/persistence/DB/conference.json",
+                            "./test/persistence/DB/like.json");
     }
 
     /**
