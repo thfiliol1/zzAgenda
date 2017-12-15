@@ -1,12 +1,15 @@
 <?php
 /**
- * Classe modélisant toutes les méthodes pouvant être appelé par un utilisateur 
+ * @author FILIOL Thomas / VALENTE Stéphane
+ * Class which modelizes all methods that can be called by an user
  */
 class UserModel {
 
     private $dal;
+    
     /**
-     * Constructeur de la classe
+     * Constructor which create the data access layer
+     * @param String $pathDB* Pathes to the data files
      */
     public function __construct($pathDBUser="persistence/DB/user.json", 
                                 $pathDBConference="persistence/DB/conference.json", 
@@ -14,17 +17,31 @@ class UserModel {
         $this->dal=new DAL($pathDBUser,$pathDBConference,$pathDBLike);
     }
     
+    /**
+     * Function which gets all the schedules after the current date
+     * @return Array Board of conference classes
+     */
     public function get_future_conferences(){
         $conferencesInfo = $this->dal->get_future_conferences();
         return $this->create_table_conferences($conferencesInfo);
     }
 
+    
+    /**
+     * Function which gets all the schedules
+     * @return Array Board of conference classes
+     */
     public function get_conferences(){
         $conferencesInfo = $this->dal->get_conferences();
         return $this->create_table_conferences($conferencesInfo);
     }
 
 
+    /**
+     * Function which creates a board of "conference classes"
+     * @param Array $conferencesInfo Array which contains all the schedules data
+     * @return Array Board of conference classes
+     */
     public function create_table_conferences($conferencesInfo) {
         $idEmail = $this->getLoginUserConnected();
         $tabConferences=array();
@@ -42,6 +59,10 @@ class UserModel {
         return $tabConferences;
     }
     
+    /**
+     * Function which add a like based on the conference id
+     * @param String $id_conf Conference identifier
+     */
     public function addLike($id_conf){
         $idEmail = $this->getLoginUserConnected();
         $tabLike = $this->dal->getLikes();
@@ -50,6 +71,10 @@ class UserModel {
         $this->dal->saveLikes($tabLike);
     }
     
+    /**
+     * Function which delete a like based on the conference id
+     * @param String $id_conf Conference identifier
+     */
     public function deleteLike($id_conf){
         $idEmail = $this->getLoginUserConnected();
         $tabLike = $this->dal->getLikes();
@@ -66,7 +91,10 @@ class UserModel {
         $this->dal->saveLikes($tabLikeNew);        
     }
 
-
+    /**
+     * Function which checks if an user is authenticated
+     * @return Boolean User authenticated or not
+     */
     public function isAuthentificate(){
         if(isset($_SESSION['role'])){
             return TRUE;
@@ -76,12 +104,21 @@ class UserModel {
         }
     }
     
+    
+    /**
+     * Function which gets the login of the current user
+     * @return String User login
+     */
     public function getLoginUserConnected(){
         if(isset($_SESSION['login'])){
             return $_SESSION['login'];
         }
     }
     
+    /**
+     * Function which checks if a visitor is an user or an administrator
+     * @return Boolean User or administrator
+     */
     public function isUser(){
         if(isset($_SESSION['role'])){
             if($_SESSION['role']=="user"){

@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @author FILIOL Thomas / VALENTE Stéphane
+ * This script set the language board in English
+ */
+
 $language['schedules']='Schedules';
 $language['map']='Map';
 $language['logout']='Logout';

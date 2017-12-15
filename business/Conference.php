@@ -1,7 +1,10 @@
 <?php
+
 /**
- * Classe représentant une conférence
+ * @author FILIOL Thomas / VALENTE Stéphane
+ * Schedule class
  */
+
 class Conference {
     private $id;
     private $date;

@@ -1,13 +1,15 @@
 <?php
 /**
- * Classe réprésentant le contrôleur d'un utilisateur 
+ * @author FILIOL Thomas / VALENTE Stéphane
+ * This class manages the actions of an user
  */
+
 class UserController{
     /**
-     * 
-     * @global String $rep Chemin absolu du répertoire contenant le projet
-     * @global Array $actions Tableau d'action(contenant les scripts php) pouvant être éxécuté par l'utilisateur
-     * @param String $action Action de l'utilisateur qui doit être éxécuté
+     * Class constructor which calls the right action based on the parameter
+     * @param String $action User action
+     * @global String $rep Absolute path of the directory containing the project
+     * @global Array $actions Board which contains the actions scripts
      */
     function __construct($action) {
         global $rep,$actions;

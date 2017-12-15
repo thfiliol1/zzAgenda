@@ -1,3 +1,13 @@
+/**
+ * @author FILIOL Thomas / VALENTE Stéphane
+ * This script manages the schedule view
+ */
+
+
+/**
+* Function which manage the maps display based on the line number
+* @param i line number
+*/
 function display_map(i){
 		jQuery.ajax({
                         dataType: 'jsonp',
@@ -10,7 +20,7 @@ function display_map(i){
                                     url: 'http://maps.googleapis.com/maps/api/geocode/json?address='+location,
                                     type: 'GET',              
                                     success : function(data, statut){     ;
-                                         // console.log(data.results[0].geometry.location);
+                                        
                                         var uluru = {lat:  data.results[0].geometry.location.lat, 
                                                      lng: data.results[0].geometry.location.lng};
                                         var map = new google.maps.Map(jQuery('#carte')[0], {
@@ -27,18 +37,27 @@ function display_map(i){
 		});    
 }
 
+/**
+* Function which manage the heart display on a schedule
+*/
 jQuery(document).ready(function() {
     jQuery(".link_like").mouseover(function() {
         var id = jQuery(this).children('i').attr('id');
         jQuery("#"+id).attr('class','fa fa-heart-o');
     });
     
-    jQuery(".link_like").mouseout(function() {
+/**
+* Function which manage the heart display on a schedule
+*/    
+jQuery(".link_like").mouseout(function() {
         var id = jQuery(this).children('i').attr('id');
         jQuery("#"+id).attr('class','fa fa-heart');
     });
-    
-    jQuery(".link_like").click(function() {
+
+/**
+* Function which send a request to the server when you want to like a schedule
+*/    
+jQuery(".link_like").click(function() {
         var id = jQuery(this).children('i').attr('id');
         var res = id.split('_');
         var idConf = res[2];
@@ -54,18 +73,28 @@ jQuery(document).ready(function() {
                 }
         });
     });    
-    
-    jQuery(".link_nolike").mouseover(function() {
+
+/**
+* Function which manage the heart display on a schedule
+*/ 
+jQuery(".link_nolike").mouseover(function() {
         var id = jQuery(this).children('i').attr('id');
         jQuery("#"+id).attr('class','fa fa-heart');
     });
-    
-    jQuery(".link_nolike").mouseout(function() {
+
+/**
+* Function which manage the heart display on a schedule
+*/ 
+jQuery(".link_nolike").mouseout(function() {
         var id = jQuery(this).children('i').attr('id');
         jQuery("#"+id).attr('class','fa fa-heart-o');
     });
 
-    jQuery(".link_nolike").click(function() {
+
+/**
+* Function which send a request to the server when you want to dislike a schedule
+*/  
+jQuery(".link_nolike").click(function() {
         var id = jQuery(this).children('i').attr('id');
         var res = id.split('_');
         var idConf = res[2];

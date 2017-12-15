@@ -1,12 +1,14 @@
 <?php
 /**
- * Classe reprÃ©sentant le contrÃ´leur principal
+ * @author FILIOL Thomas / VALENTE Stéphane
+ * This class manages the actions based on a user's role
  */
+
 class FrontController{
     /**
-     * Constructeur de la classe permettant d'appeler le bon contrÃ´leur correspondant Ã  l'action 
-     * @global String $rep Chemin absolu du rÃ©pertoire contenant le projet
-     * @global Array $views Tableau contenant tous les scripts liÃ©s aux vues 
+     * Class constructor which calls the right action based on the user's role
+     * @global String $rep Absolute path of the directory containing the project
+     * @global Array $views Board which contains the views scripts
      */
     function __construct() {  
        global $rep,$views;    
@@ -26,7 +28,7 @@ class FrontController{
             
             $tabActionAdministrateur=array('connect','disconnect','admin','editConf','addConf','delConf');
             $tabActionUtilisateur=array('log_in','conferences','add_like');
-            //on teste si le visiteur est authentifiÃ©
+
             if (in_array($action,$tabActionAdministrateur)){
                 $modAdmin=new AdministratorModel();
                 if(!$modAdmin->isAdmin()){

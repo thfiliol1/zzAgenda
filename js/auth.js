@@ -1,16 +1,29 @@
-jQuery(document).ready(function() {
+/**
+ * @author FILIOL Thomas / VALENTE Stéphane
+ * This script manages the authentification view
+ */
 
+jQuery(document).ready(function() {
+    /**
+     * Function called when an user click on the login button
+     */
     jQuery("#buttonAuth").click(function() {
 		login();
 	})
 
-	 jQuery("#form").keyup(function(e) {
+    /**
+     * Function called when an user press the return button
+     */
+    jQuery("#form").keyup(function(e) {
       if(e.keyCode == 13) {
             login();
        }
 	});
 
         
+    /**
+     * Function called when an user want to disconnect
+     */
     jQuery("#link_logout").click(function() {		
 		jQuery.ajax({
 			url: 'index.php?v=disconnect',
@@ -22,6 +35,9 @@ jQuery(document).ready(function() {
 	})
 });
 
+/**
+* Function which send the login request to the server
+*/
 function login() {
 	var email = jQuery("#field_email").val();
 		var pwd = jQuery("#field_password").val();
@@ -33,7 +49,7 @@ function login() {
 				"email":email,
 				"pwd":pwd 
 			},
-			beforeSend : function() { // traitements JS à faire AVANT l'envoi
+			beforeSend : function() { 
 					jQuery('#result').html('<div id="chargement" class="container" align="center"><img src="images/ajax-loader.gif" alt="loader" id="ajax-loader" /></div>'); // ajout d'un loader pour signifier l'action
 			},                 
 			success : function(data, statut){                                

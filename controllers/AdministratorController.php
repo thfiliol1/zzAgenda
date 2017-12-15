@@ -1,7 +1,17 @@
 <?php
 
+/**
+ * @author FILIOL Thomas / VALENTE Stéphane
+ * This class manages the actions of an administrator
+ */
+
 class AdministratorController {
-    
+    /**
+     * Class constructor which calls the right action based on the parameter
+     * @param String $action Administration action
+     * @global String $rep Absolute path of the directory containing the project
+     * @global Array $actions Board which contains the actions scripts
+     */
     function __construct($action) {
         global $rep,$actions;
         switch($action) {
@@ -26,7 +36,6 @@ class AdministratorController {
         }
     }
     
-    //Méthode permettant à l'utilisateur de se déconnecter   
     function disconnect(){
         global $rep,$views;
         $ModAdmin=new AdministratorModel();

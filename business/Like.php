@@ -1,7 +1,10 @@
 <?php
+
 /**
- * Classe représentant un like
+ * @author FILIOL Thomas / VALENTE Stéphane
+ * Like class
  */
+
 class Like {
     private $user_id;
     private $conference_id;

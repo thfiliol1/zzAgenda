@@ -1,7 +1,10 @@
 <?php
+
 /**
- * Classe permettant de charger les classes lorsqu'elles sont appelées 
+ * @author FILIOL Thomas / VALENTE Stéphane
+ * This class automatically loads classes from a file name
  */
+
 class Loader{
     private static $_instance = null;
 

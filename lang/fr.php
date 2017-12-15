@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @author FILIOL Thomas / VALENTE Stéphane
+ * This script set the language board in French
+ */
+
 $language['schedules']='Conférences';
 $language['map']='Carte';
 $language['logout']='Déconnexion';

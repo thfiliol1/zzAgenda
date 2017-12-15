@@ -1,7 +1,10 @@
 <?php
+
 /**
- * Classe représentant un utilisateur
+ * @author FILIOL Thomas / VALENTE Stéphane
+ * User class
  */
+
 class User {
     private $firstname;
     private $lastname;

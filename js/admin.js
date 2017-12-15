@@ -1,8 +1,15 @@
+/**
+ * @author FILIOL Thomas / VALENTE Stéphane
+ * This script manages the administration view
+ */
+
 var edit_id = 0;
 var del_id = 0;
 
 jQuery(document).ready(function() {
-
+    /**
+     * Function called when an administration edits a schedule
+     */
     jQuery("#edit_button").click(function() {
     	var id = edit_id;
 		var date = jQuery("#edit_date").val()
@@ -36,7 +43,9 @@ jQuery(document).ready(function() {
 			}
 		});
 	})
-
+        /**
+        * Function called when an administration adds a schedule
+        */
 	jQuery("#add_button").click(function() {
 
 		var date = jQuery("#add_date").val()
@@ -69,6 +78,9 @@ jQuery(document).ready(function() {
 		});
 	})
 
+        /**
+        * Function called when an administration deletes a schedule
+        */
 	jQuery("#del_button").click(function() {
     	var id = del_id;
 		console.log(id);
@@ -91,7 +103,10 @@ jQuery(document).ready(function() {
 });
 
 
-
+/**
+* function which fills out the edit forms based on the clicked schedule in the board
+* @param clicked_id Schedule identifier
+*/
 function edit_click(clicked_id) {
 	edit_id = document.getElementsByName('td_idConf'+clicked_id)[0].innerHTML;
     $("#edit_date").val(document.getElementsByName('td_date'+clicked_id)[0].innerHTML);
@@ -101,14 +116,22 @@ function edit_click(clicked_id) {
     $("#edit_description").html(document.getElementsByName('td_description'+clicked_id)[0].innerHTML);
 }
 
+/**
+* function which recovers the identifier of the conference that the administrator wants to delete
+* @param clicked_id Schedule identifier
+*/
 function del_click(clicked_id) {
 	del_id = document.getElementsByName('td_idConf'+clicked_id)[0].innerHTML;
 }
 
-function commande(nom, argument) {
+/**
+* function which manages the font format into the add and edit pop-up
+* @param name Name of the font modifier (bold,italic,underligned...)
+*/
+function commande(name, argument) {
   if (typeof argument === 'undefined') {
     argument = '';
   }
   
-  document.execCommand(nom, false, argument);
+  document.execCommand(name, false, argument);
 }

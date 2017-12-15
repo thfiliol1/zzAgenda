@@ -1,15 +1,31 @@
 <?php
-
+/**
+ * @author FILIOL Thomas / VALENTE Stéphane
+ * Class which modelizes all methods that can be called by an administration
+ */
 class AdministratorModel {
 
     private $dal;
     
+    /**
+     * Constructor which create the data access layer
+     * @param String $pathDB* Pathes to the data files
+     */
     public function __construct($pathDBUser="persistence/DB/user.json", 
                                 $pathDBConference="persistence/DB/conference.json", 
                                 $pathDBLike="persistence/DB/like.json"){
 	$this->dal = new DAL($pathDBUser,$pathDBConference,$pathDBLike);
     }
 
+    /**
+     * Function which manages the user connection
+     * @param String $email User email
+     * @param String $pwd User password
+     * @throws Email_not_recognized
+     * @throws already_connected
+     * @throws password_not_valid
+     * @return User User class with all the informations
+     */
     public function connect($email,$pwd){
         global $language;
         $userInfo = $this->dal->get_user($email);
@@ -48,7 +64,10 @@ class AdministratorModel {
     }
     
 
-    
+    /**
+     * Function which checks if a visitor is an user or an administrator
+     * @return Boolean User or administrator
+     */
     public function isAdmin(){
         if(isset($_SESSION['role'])){
             if($_SESSION['role']=="admin"){
@@ -63,7 +82,9 @@ class AdministratorModel {
         }
     }
 
-
+    /**
+     * Function which manages the user disconnection
+     */
     public function disconnect(){
         $userInfo=$this->dal->get_user($_SESSION["login"]);
         
@@ -77,13 +98,19 @@ class AdministratorModel {
         session_unset();     
     }  
 
-
+    /**
+     * Function which modifies a schedule 
+     * @param Conference $conf Conference which need to be modify
+     */
     public function editConf($conf) {
         $tabConfs = $this->dal->get_conferences();
         $tabConfs[$conf->getId()]=$conf->expose();
         $this->dal->save_conferences($tabConfs);
     }
 
+    /**
+     * Function which add a schedule with identifier management
+     */
     public function addConf($date,$title,$city,$speaker,$description) {
         $tabConfs = $this->dal->get_conferences();
         $keys = array_keys($tabConfs);
@@ -94,6 +121,10 @@ class AdministratorModel {
         $this->dal->save_conferences($tabConfs);
     }
 
+    /**
+     * Function which delete a schedule
+     * @param String $id Conference idenfifier
+     */
     public function delConf($id) {
         $tabConfs = $this->dal->get_conferences();
         $tabLikes = $this->dal->getLikes();

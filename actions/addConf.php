@@ -1,4 +1,10 @@
 <?php
+
+/**
+ * @author FILIOL Thomas / VALENTE Stéphane
+ * This script is called when an administration does the action "add a schedule"
+ */
+
 global $rep,$views,$language;
 
 $date=htmlentities(Parameter::getParam('date'),ENT_QUOTES,"UTF-8");

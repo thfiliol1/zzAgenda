@@ -1,4 +1,10 @@
 <?php
+
+/**
+ * @author FILIOL Thomas / VALENTE Stéphane
+ * This script is called when an administration does the action "edit a schedule"
+ */
+
 global $rep,$views,$language;
 
 $idConf=htmlentities(Parameter::getParam('id'),ENT_QUOTES,"UTF-8");

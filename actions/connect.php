@@ -1,4 +1,10 @@
 <?php
+
+/**
+ * @author FILIOL Thomas / VALENTE Stéphane
+ * This script is called when an user tries to connect
+ */
+
 global $rep,$views,$language;
 
 if (Parameter::getParam('email') == NULL || Parameter::getParam('pwd') == NULL){

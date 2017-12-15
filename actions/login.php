@@ -1,6 +1,7 @@
 <?php
-/** CECI EST UN EXEMPLE
- * Script exécuté lors de l'appel de la page accueil
+/**
+ * @author FILIOL Thomas / VALENTE Stéphane
+ * This script is called when the home page is started
  */
 global $rep, $views, $language,$last_login;
 

@@ -1,3 +1,11 @@
+/**
+ * @author FILIOL Thomas / VALENTE Stéphane
+ * This script manages the language selector
+ */
+
+/**
+* Function which manage the language selector display
+*/ 
 $(document).ready(function(){
 		var fraImgLink = window.href + "/../images/Fr.gif";
                 var engImgLink = window.href + "/../images/Uk.gif";
@@ -65,12 +73,23 @@ $(document).ready(function(){
 		});
 });
 
+
+/**
+* Function which set the language cookie
+* @param sName Name of the cookie
+* @param sValue language selected
+*/ 
 function setCookie(sName, sValue) {
         var today = new Date(), expires = new Date();
         expires.setTime(today.getTime() + (20*24*60*60*1000));
         document.cookie = sName + "=" + encodeURIComponent(sValue) + ";expires=" + expires.toGMTString();
 }
 
+
+/**
+* Function which get the language cookie
+* @param sName Name of the cookie
+*/ 
 function getCookie(sName) {
         var cookContent = document.cookie, cookEnd, i, j;
         var sName = sName + "=";
